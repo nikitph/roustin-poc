@@ -5,7 +5,6 @@ import convertFromKelvin from '../Transforms/ConvertFromKelvin'
 
 export function * getTemperature (api, action) {
   const { city } = action
-  console.log(city)
   // make the call to the api
   const response = yield call(api.postTownship, city)
 

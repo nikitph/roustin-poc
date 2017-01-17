@@ -2,7 +2,7 @@
 import apisauce from 'apisauce'
 
 // our "constructor"
-const create = (baseURL = 'http://127.0.0.1:8001/') => {
+const create = (baseURL = 'http://127.0.0.1:5000/') => {
   // ------
   // STEP 1
   // ------
@@ -47,16 +47,8 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const postTownship = (params) => api.post('township', {website:params,
-    city:"foster city",
-    name:"vishal society 2",
-    builder:"pol",
-    phone:"6507031447",
-    state:"California",
-    address:"837 Shell Blvd apt 103",
-    email:"nikitph@gmail.com"});
+  const postLogin = (params) => api.post('enter', {username:params.username,password:params.password});
 
-  const getTownship = (params) => api.get('township');
 
   // ------
   // STEP 3
@@ -72,8 +64,7 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
   //
   return {
     // a list of the API functions from step 2
-    postTownship,
-    getTownship
+    postLogin
   }
 };
 
@@ -81,3 +72,6 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
 export default {
   create
 }
+/**
+ * Created by Omkareshwar on 1/17/17.
+ */
