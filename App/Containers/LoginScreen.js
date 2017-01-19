@@ -13,8 +13,9 @@ import {
 } from 'react-native'
 import { connect } from 'react-redux'
 import Styles from './Styles/LoginScreenStyle'
-import {Images, Metrics} from '../Themes'
+import {Images, Metrics, Colors} from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
+import Icon from 'react-native-vector-icons/FontAwesome'
 
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import I18n from 'react-native-i18n'
@@ -45,8 +46,8 @@ class LoginScreen extends React.Component {
   constructor (props: LoginScreenProps) {
     super(props)
     this.state = {
-      username: 'reactnative@infinite.red',
-      password: 'password',
+      username: null,
+      password: null,
       visibleHeight: Metrics.screenHeight,
       topLogo: { width: Metrics.screenWidth }
     }
@@ -88,7 +89,7 @@ class LoginScreen extends React.Component {
     LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut)
     this.setState({
       visibleHeight: Metrics.screenHeight,
-      topLogo: {width: Metrics.screenWidth}
+      topLogo: {width: Metrics.screenWidth * 0.25}
     })
   }
 
@@ -114,10 +115,11 @@ class LoginScreen extends React.Component {
     const textInputStyle = editable ? Styles.textInput : Styles.textInputReadonly
     return (
       <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[Styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps>
-        <Image source={Images.logo} style={[Styles.topLogo, this.state.topLogo]} />
+        <Image source={Images.logo} style={[Styles.topLogo]}/>
+        <Image source={Images.login_bg} style={[Styles.loginbg]}/>
+
         <View style={Styles.form}>
           <View style={Styles.row}>
-            <Text style={Styles.rowLabel}>{I18n.t('username')}</Text>
             <TextInput
               ref='username'
               style={textInputStyle}
@@ -134,7 +136,6 @@ class LoginScreen extends React.Component {
           </View>
 
           <View style={Styles.row}>
-            <Text style={Styles.rowLabel}>{I18n.t('password')}</Text>
             <TextInput
               ref='password'
               style={textInputStyle}
@@ -151,19 +152,22 @@ class LoginScreen extends React.Component {
               placeholder={I18n.t('password')} />
           </View>
 
-          <View style={[Styles.loginRow]}>
-            <TouchableOpacity style={Styles.loginButtonWrapper} onPress={this.handlePressLogin}>
-              <View style={Styles.loginButton}>
-                <Text style={Styles.loginText}>{I18n.t('signIn')}</Text>
-              </View>
-            </TouchableOpacity>
-            <TouchableOpacity style={Styles.loginButtonWrapper} onPress={NavigationActions.pop}>
-              <View style={Styles.loginButton}>
-                <Text style={Styles.loginText}>{I18n.t('cancel')}</Text>
-              </View>
-            </TouchableOpacity>
-          </View>
+
         </View>
+        <View style={[Styles.loginRow]}>
+          <TouchableOpacity style={Styles.loginButtonWrapper} onPress={this.handlePressLogin}>
+            <View style={Styles.loginButton}>
+              <Text style={Styles.loginText}>{I18n.t('signIn')}</Text>
+            </View>
+          </TouchableOpacity>
+          <TouchableOpacity style={Styles.loginButtonWrapper} onPress={NavigationActions.pop}>
+            <View style={Styles.loginButton}>
+              <Text style={Styles.loginText}>{I18n.t('cancel')}</Text>
+            </View>
+          </TouchableOpacity>
+        </View>
+
+
 
       </ScrollView>
     )
