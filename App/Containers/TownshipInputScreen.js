@@ -72,6 +72,7 @@ class TownshipInputScreen extends React.Component {
     this.setState({ email: text })
   };
 
+
   handlePressSend = () => {
     this.props.requestTemperature(this.state.email);
     NavigationActions.deviceInfo();

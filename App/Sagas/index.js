@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga'
+import {takeLatest, takeEvery} from 'redux-saga'
 import API from '../Services/Api'
 import loginAPI from '../Services/loginApi'
 import FixtureAPI from '../Services/FixtureApi'
@@ -10,6 +10,7 @@ import { StartupTypes } from '../Redux/StartupRedux'
 import { TemperatureTypes } from '../Redux/TemperatureRedux'
 import { LoginTypes } from '../Redux/LoginRedux'
 import { OpenScreenTypes } from '../Redux/OpenScreenRedux'
+import {ItemTypes} from '../Redux/ItemRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -17,6 +18,7 @@ import { startup } from './StartupSagas'
 import { login } from './LoginSagas'
 import { getTemperature } from './TemperatureSagas'
 import { openScreen } from './OpenScreenSagas'
+import {getItems, postItem} from './ItemSagas'
 
 /* ------------- API ------------- */
 
@@ -35,6 +37,8 @@ export default function * root () {
     takeLatest(OpenScreenTypes.OPEN_SCREEN, openScreen),
 
     // some sagas receive extra parameters in addition to an action
-    takeLatest(TemperatureTypes.TEMPERATURE_REQUEST, getTemperature, api)
+    takeLatest(TemperatureTypes.TEMPERATURE_REQUEST, getTemperature, api),
+    //takeLatest(ItemTypes.ITEM_REQUEST, getItems, api),
+    takeLatest(ItemTypes.ITEM_REQUEST, postItem, api)
   ]
 }

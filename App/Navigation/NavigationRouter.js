@@ -21,6 +21,7 @@ import APITestingScreen from '../Containers/APITestingScreen'
 import ThemeScreen from '../Containers/ThemeScreen'
 import DeviceInfoScreen from '../Containers/DeviceInfoScreen'
 import TownshipInputScreen from "../Containers/TownshipInputScreen";
+import ItemInput from '../Containers/ItemInput'
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
@@ -43,6 +44,7 @@ class NavigationRouter extends Component {
             <Scene key='mapviewExample' component={MapviewExample} title='Mapview Example' />
             <Scene key='apiTesting' component={APITestingScreen} title='API Testing' />
             <Scene key='townshipInput' component={TownshipInputScreen} title='Theme' />
+            <Scene key='itemInput' component={ItemInput} title='Theme'/>
 
             {/* Custom navigation bar example */}
             <Scene key='deviceInfo' component={DeviceInfoScreen} title='Device Info' />

@@ -58,6 +58,19 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
 
   const getTownship = (params) => api.get('township');
 
+  const postItem = (params) => api.post('item', {
+    building: "5776e6e9d6827b30a8b72a68",
+    item_summary: "test 2",
+    price: "500",
+    details: "sd",
+    sold: true,
+    negotiable: false,
+    user: "5776b9ddd6827b2fb89e2085"
+  });
+
+  const getItem = (params) => api.get('item');
+
+
   // ------
   // STEP 3
   // ------
@@ -73,7 +86,9 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
   return {
     // a list of the API functions from step 2
     postTownship,
-    getTownship
+    getTownship,
+    postItem,
+    getItem
   }
 };
 

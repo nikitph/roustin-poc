@@ -49,6 +49,9 @@ const create = (baseURL = 'http://127.0.0.1:5000/') => {
   //
   const postLogin = (params) => api.post('enter', {username:params.username,password:params.password});
 
+  const postRegister = (params) => api.post('regis', {username: params.username, password: params.password});
+
+
 
   // ------
   // STEP 3
@@ -64,7 +67,8 @@ const create = (baseURL = 'http://127.0.0.1:5000/') => {
   //
   return {
     // a list of the API functions from step 2
-    postLogin
+    postLogin,
+    postRegister
   }
 };
 

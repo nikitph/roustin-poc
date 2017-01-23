@@ -6,6 +6,7 @@ import { View, ScrollView, Text, Image, NetInfo } from 'react-native'
 import DeviceInfo from 'react-native-device-info'
 import { Metrics, Images } from '../Themes'
 import styles from './Styles/DeviceInfoScreenStyle'
+import SwipeableViews from 'react-swipeable-views-native';
 
 const HARDWARE_DATA = [
   {title: 'Device Manufacturer', info: DeviceInfo.getManufacturer()},
@@ -123,8 +124,25 @@ export default class DeviceInfoScreen extends React.Component {
 
   render () {
     return (
+
       <View style={styles.mainContainer}>
-        <Image source={Images.background} style={styles.backgroundImage} resizeMode='stretch' />
+        <SwipeableViews style={styles.slideContainer}>
+          <View style={[styles.slide, styles.slide1]}>
+            <Text style={styles.text}>
+              slide n°1
+            </Text>
+          </View>
+          <View style={[styles.slide, styles.slide2]}>
+            <Text style={styles.text}>
+              slide n°2
+            </Text>
+          </View>
+          <View style={[styles.slide, styles.slide3]}>
+            <Text style={styles.text}>
+              slide n°3
+            </Text>
+          </View>
+        </SwipeableViews>
         <ScrollView style={styles.container}>
           <View style={styles.section}>
             <Text style={styles.sectionText} >

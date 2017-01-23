@@ -38,7 +38,7 @@ export default class PresentationScreen extends React.Component {
             API Testing Screen
           </RoundedButton>
 
-          <RoundedButton onPress={NavigationActions.townshipInput}>
+          <RoundedButton onPress={NavigationActions.itemInput}>
             Theme Screen
           </RoundedButton>
 
