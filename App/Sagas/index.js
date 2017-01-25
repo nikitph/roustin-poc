@@ -38,7 +38,7 @@ export default function * root () {
 
     // some sagas receive extra parameters in addition to an action
     takeLatest(TemperatureTypes.TEMPERATURE_REQUEST, getTemperature, api),
-    //takeLatest(ItemTypes.ITEM_REQUEST, getItems, api),
-    takeLatest(ItemTypes.ITEM_REQUEST, postItem, api)
+    takeLatest(ItemTypes.ITEM_REQUEST, getItems, api),
+    //takeLatest(ItemTypes.ITEM_REQUEST, postItem, api)
   ]
 }

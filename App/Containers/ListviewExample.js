@@ -1,7 +1,7 @@
 // @flow
 
-import React from 'react'
-import { View, Text, ListView } from 'react-native'
+import React, {PropTypes} from 'react'
+import {View, Text, ListView, Image} from 'react-native'
 import { connect } from 'react-redux'
 
 // For empty lists
@@ -11,40 +11,23 @@ import AlertMessage from '../Components/AlertMessage'
 import styles from './Styles/ListviewExampleStyle'
 
 class ListviewExample extends React.Component {
+
   state: {
-    dataSource: Object
-  }
+
+    dataSource: Object,
+    isfetching: false,
+    user: null
+
+  };
 
   constructor (props) {
-    super(props)
+    super(props);
     /* ***********************************************************
     * STEP 1
     * This is an array of objects with the properties you desire
     * Usually this should come from Redux mapStateToProps
     *************************************************************/
-    const dataObjects = [
-      {title: 'First Title', description: 'First Description'},
-      {title: 'Second Title', description: 'Second Description'},
-      {title: 'Third Title', description: 'Third Description'},
-      {title: 'Fourth Title', description: 'Fourth Description'},
-      {title: 'Fifth Title', description: 'Fifth Description'},
-      {title: 'Sixth Title', description: 'Sixth Description'},
-      {title: 'Seventh Title', description: 'Seventh Description'},
-      {title: 'Eighth Title', description: 'Eighth Description'},
-      {title: 'Ninth Title', description: 'Ninth Description'},
-      {title: 'Tenth Title', description: 'Tenth Description'},
-      {title: 'Eleventh Title', description: 'Eleventh Description'},
-      {title: '12th Title', description: '12th Description'},
-      {title: '13th Title', description: '13th Description'},
-      {title: '14th Title', description: '14th Description'},
-      {title: '15th Title', description: '15th Description'},
-      {title: '16th Title', description: '16th Description'},
-      {title: '17th Title', description: '17th Description'},
-      {title: '18th Title', description: '18th Description'},
-      {title: '19th Title', description: '19th Description'},
-      {title: '20th Title', description: '20th Description'},
-      {title: 'BLACKJACK!', description: 'BLACKJACK! Description'}
-    ]
+    const dataObjects = props.item_data;
 
     /* ***********************************************************
     * STEP 2
@@ -72,10 +55,14 @@ class ListviewExample extends React.Component {
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
   renderRow (rowData) {
+    console.tron.log(rowData.image);
+    let img = 'http://127.0.0.1:5000/' + rowData.image;
     return (
       <View style={styles.row}>
-        <Text style={styles.boldLabel}>{rowData.title}</Text>
-        <Text style={styles.label}>{rowData.description}</Text>
+        <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20}}/>
+        <View style={{justifyContent:'flex-end', padding:5}}>
+          <Text style={styles.label}>{rowData.details}</Text>
+        </View>
       </View>
     )
   }
@@ -119,9 +106,20 @@ class ListviewExample extends React.Component {
   }
 }
 
+ListviewExample.propTypes = {
+
+  isfetching: PropTypes.bool,
+  item_data: PropTypes.array
+
+};
+
 const mapStateToProps = (state) => {
+
+  console.log(state.item);
   return {
-    // ...redux state to props here
+
+    isfetching: state.item.fetching,
+    item_data: state.item.payload._items
   }
 }
 

@@ -43,7 +43,9 @@ class ItemInput extends React.Component {
       details: null,
       price: 1,
       sold: false,
-      negotiable: true
+      negotiable: true,
+      building: props.building,
+      user: props.user
     }
 
   }
@@ -55,14 +57,14 @@ class ItemInput extends React.Component {
 
 
   handleOnChange = (value) => {
-    console.log(value);
+    console.log(this.state);
     this.setState(value);
     console.log(this.state)
   };
 
   onChange = (value, path) => {
     // validate a field on every change
-    console.log(value);
+    console.log(this.props);
     console.log(this.refs.form.getValue());
     this.refs.form.getComponent(path).validate();
     this.setState(this.refs.form.getValue());
@@ -96,14 +98,19 @@ class ItemInput extends React.Component {
 ItemInput.propTypes = {
 
   requestItem: PropTypes.func,
-  isfetching: PropTypes.bool
+  isfetching: PropTypes.bool,
+  building: PropTypes.string,
+  user: PropTypes.string
 
 };
 
 const mapStateToProps = (state) => {
+  console.log(state.login);
   return {
 
-    isfetching: state.item.fetching
+    isfetching: state.item.fetching,
+    building: state.login.username.buildingid,
+    user: state.login.username._id.$oid
   }
 }
 

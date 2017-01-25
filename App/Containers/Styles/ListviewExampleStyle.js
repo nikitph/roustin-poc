@@ -8,24 +8,28 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     marginTop: Metrics.navBarHeight,
-    backgroundColor: Colors.background
+    backgroundColor: Colors.snow
   },
   row: {
     flex: 1,
-    backgroundColor: Colors.fire,
-    marginVertical: Metrics.smallMargin,
-    justifyContent: 'center'
+    backgroundColor: Colors.snow,
+    borderBottomColor: Colors.transparentblack,
+    borderBottomWidth: 1,
+    justifyContent: 'flex-start',
+    padding: 5,
+    flexDirection: 'row'
   },
   boldLabel: {
     fontWeight: 'bold',
     alignSelf: 'center',
-    color: Colors.snow,
+    color: Colors.charcoal,
     textAlign: 'center',
     marginVertical: Metrics.smallMargin
   },
   label: {
-    textAlign: 'center',
-    color: Colors.snow,
+    alignSelf: 'center',
+    justifyContent: 'center',
+    color: Colors.charcoal,
     marginBottom: Metrics.smallMargin
   },
   listContent: {

@@ -17,6 +17,7 @@ export function * getItems(api, action) {
   const {data} = action
   // make the call to the api
   const response = yield call(api.getItem, data)
+  console.log(response.data);
 
   // success?
   if (response.ok) {
