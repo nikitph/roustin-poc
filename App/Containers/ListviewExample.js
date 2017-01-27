@@ -1,8 +1,9 @@
 // @flow
 
 import React, {PropTypes} from 'react'
-import {View, Text, ListView, Image} from 'react-native'
+import {View, Text, ListView, Image, TouchableOpacity} from 'react-native'
 import { connect } from 'react-redux'
+import {Actions as NavigationActions} from 'react-native-router-flux'
 
 // For empty lists
 import AlertMessage from '../Components/AlertMessage'
@@ -46,6 +47,11 @@ class ListviewExample extends React.Component {
     }
   }
 
+  static onPressButton = () => {
+    console.tron.log('yup');
+    NavigationActions.deviceInfo();
+  }
+
   /* ***********************************************************
   * STEP 3
   * `renderRow` function -How each cell/row should be rendered
@@ -55,15 +61,23 @@ class ListviewExample extends React.Component {
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
   renderRow (rowData) {
+    onPressButton = (rowdata) => {
+      console.tron.log(rowdata);
+      NavigationActions.deviceInfo({data: "Custom data", title: 'Custom title'});
+    };
     console.tron.log(rowData.image);
+    //console.tron.log(this);
     let img = 'http://127.0.0.1:5000/' + rowData.image;
     return (
-      <View style={styles.row}>
-        <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20}}/>
-        <View style={{justifyContent:'flex-end', padding:5}}>
-          <Text style={styles.label}>{rowData.details}</Text>
+      <TouchableOpacity onPress={() => onPressButton(rowData)}>
+
+        <View style={styles.row}>
+          <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20}}/>
+          <View style={{justifyContent:'flex-end', padding:5}}>
+            <Text style={styles.label}>{rowData.details}</Text>
+          </View>
         </View>
-      </View>
+      </TouchableOpacity>
     )
   }
 

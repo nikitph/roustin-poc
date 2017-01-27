@@ -7,6 +7,8 @@ import DeviceInfo from 'react-native-device-info'
 import { Metrics, Images } from '../Themes'
 import styles from './Styles/DeviceInfoScreenStyle'
 import SwipeableViews from 'react-swipeable-views-native';
+import {CardStack, Card} from 'react-cardstack';
+
 
 const HARDWARE_DATA = [
   {title: 'Device Manufacturer', info: DeviceInfo.getManufacturer()},
@@ -46,7 +48,8 @@ export default class DeviceInfoScreen extends React.Component {
     this.state = {
       isConnected: false,
       connectionInfo: null,
-      connectionInfoHistory: []
+      connectionInfoHistory: [],
+      data: props.data
     }
   }
 
