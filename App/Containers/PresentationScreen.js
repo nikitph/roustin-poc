@@ -5,6 +5,7 @@ import { ScrollView, Text, Image, View } from 'react-native'
 import { Images } from '../Themes'
 import RoundedButton from '../Components/RoundedButton'
 import { Actions as NavigationActions } from 'react-native-router-flux'
+import I18n from 'react-native-i18n'
 
 // Styles
 import styles from './Styles/PresentationScreenStyle'
@@ -26,6 +27,10 @@ export default class PresentationScreen extends React.Component {
             </Text>
           </View>
 
+          <RoundedButton onPress={NavigationActions.login}>
+            {I18n.t('signIn')}
+          </RoundedButton>
+
           <RoundedButton onPress={NavigationActions.componentExamples}>
             Component Examples Screen
           </RoundedButton>
@@ -44,6 +49,10 @@ export default class PresentationScreen extends React.Component {
 
           <RoundedButton onPress={NavigationActions.deviceInfo}>
             Device Info Screen
+          </RoundedButton>
+
+          <RoundedButton onPress={NavigationActions.homeScreen}>
+            Home Screen
           </RoundedButton>
 
           <View style={styles.centered}>

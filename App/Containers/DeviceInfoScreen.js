@@ -7,7 +7,6 @@ import DeviceInfo from 'react-native-device-info'
 import { Metrics, Images } from '../Themes'
 import styles from './Styles/DeviceInfoScreenStyle'
 import SwipeableViews from 'react-swipeable-views-native';
-import {CardStack, Card} from 'react-cardstack';
 
 
 const HARDWARE_DATA = [

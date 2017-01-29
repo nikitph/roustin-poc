@@ -105,20 +105,19 @@ ItemInput.propTypes = {
 };
 
 const mapStateToProps = (state) => {
-  console.log(state.login);
   return {
 
     isfetching: state.item.fetching,
     building: state.login.username.buildingid,
     user: state.login.username._id.$oid
   }
-}
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
 
     requestItem: (params) => dispatch(ItemActions.itemRequest(params))
   }
-}
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemInput)
