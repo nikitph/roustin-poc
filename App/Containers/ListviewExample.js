@@ -72,7 +72,7 @@ class ListviewExample extends React.Component {
       <TouchableOpacity onPress={() => onPressButton(rowData)}>
 
         <View style={styles.row}>
-          <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20}}/>
+          <Image source={{uri: img}} style={{width:60, height:60}}/>
           <View style={{justifyContent:'flex-end', padding:5}}>
             <Text style={styles.label}>{rowData.details}</Text>
           </View>

@@ -8,15 +8,16 @@ export default StyleSheet.create({
   container: {
     flex: 1,
     marginTop: Metrics.navBarHeight,
-    backgroundColor: Colors.snow
+    backgroundColor: '#F4B459'
   },
   row: {
     flex: 1,
-    backgroundColor: Colors.snow,
+    backgroundColor: '#F0D796',
     borderBottomColor: Colors.transparentblack,
-    borderBottomWidth: 1,
+    margin: 2,
+    marginLeft: 5,
+    marginRight: 5,
     justifyContent: 'flex-start',
-    padding: 5,
     flexDirection: 'row'
   },
   boldLabel: {
