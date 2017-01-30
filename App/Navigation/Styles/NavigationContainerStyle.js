@@ -4,10 +4,12 @@ import {Colors} from '../../Themes/'
 
 export default {
   container: {
-    flex: 1
+    flex: 1,
+    borderBottomColor: 'transparent'
   },
   navBar: {
-    backgroundColor: '#FFDD51'
+    backgroundColor: '#F4B459',
+    borderBottomColor: 'transparent'
   },
   title: {
     color: Colors.snow

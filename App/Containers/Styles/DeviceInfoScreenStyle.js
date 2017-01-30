@@ -13,7 +13,7 @@ export default StyleSheet.create({
     height: 100,
   },
   slide1: {
-    backgroundColor: '#FEA900',
+    backgroundColor: '#F4B459',
   },
   slide2: {
     backgroundColor: '#B3DC4A',

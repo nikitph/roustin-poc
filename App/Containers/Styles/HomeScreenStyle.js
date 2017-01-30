@@ -13,6 +13,26 @@ export default StyleSheet.create({
     height: Metrics.screenHeight,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    backgroundColor: '#FFDD51'
-  }
+    backgroundColor: '#F4B459'
+  },
+  slideContainer: {
+    flex: 0.16,
+    marginTop: 64, position: 'relative'
+  },
+  slide: {
+    flex: 1,
+  },
+  slide1: {
+    backgroundColor: '#F4B459',
+  },
+  slide2: {
+    backgroundColor: '#F4B459',
+  },
+  slide3: {
+    backgroundColor: '#F4B459',
+  },
+  text: {
+    color: '#fff',
+    fontSize: 16,
+  },
 })

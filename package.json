@@ -43,6 +43,7 @@
     "react-native-vector-icons": "^3.0.0",
     "react-redux": "^4.4.6",
     "react-swipeable-views-native": "^0.10.1",
+    "react-swipeable-views-utils": "^0.10.1",
     "redux": "^3.6.0",
     "redux-logger": "^2.7.4",
     "redux-persist": "^3.5.0",
