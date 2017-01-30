@@ -1,13 +1,14 @@
 // @flow
 
 import React, {PropTypes} from 'react'
-import {ScrollView, Text, KeyboardAvoidingView, Image, View} from 'react-native'
+import {ScrollView, Text, KeyboardAvoidingView, Image, View, TouchableHighlight} from 'react-native'
 import {connect} from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 import {Metrics} from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
+import {Images} from '../Themes'
 import Animatable from 'react-native-animatable'
 import {Actions as NavigationActions} from 'react-native-router-flux'
 
@@ -28,47 +29,44 @@ class HomeScreen extends React.Component {
   }
 
   render() {
-    let img = 'http://127.0.0.1:5000/' + this.props.img;
+    let img = 'http://127.0.0.1:5000/static/img/256px-Weiser_State_Forest_Walking_Path.jpg';
     console.tron.log(img);
 
     return (
       <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <View style={{flexDirection:'row', marginTop:64, flex:0.2}}>
-            <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20}}/>
-            <View style={{justifyContent:'flex-end', padding:5}}>
-              <Text style={styles.label}>Hi {this.state.user}</Text>
+        <View style={styles.containertwo}>
+          <View style={{flexDirection:'row', marginTop:64, flex:0.1, alignItems:'center'}}>
+            <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20, marginLeft:20}}/>
+            <View style={{justifyContent:'flex-end', padding:10}}>
+              <Text style={{fontFamily:'AvenirNext-UltraLight', fontSize:32, fontWeight:'100'}}>Hi nikit</Text>
             </View>
           </View>
-          <View style={{flex:0.4}}>
-            <Icon name="tag" size={40} color="#900"/>
-          </View>
-          <View style={{flex:0.4}}>
-            <Icon name="basket" size={30} color="#900"/>
-            <Text>HomeScreen Container</Text>
-          </View>
-        </KeyboardAvoidingView>
+          <TouchableHighlight onPress={()=> NavigationActions.deviceInfo()} style={{flex:0.45}}>
+            <Image source={Images.buy}
+                   style={{flex:0.45, alignSelf:'center', resizeMode:'cover'}}>
+
+            </Image>
+          </TouchableHighlight>
+          <TouchableHighlight onPress={()=> NavigationActions.deviceInfo()} style={{flex:0.45}}>
+
+            <Image source={Images.sell}
+                   style={{flex:0.45, alignSelf:'center', resizeMode:'cover'}}>
+
+
+            </Image>
+          </TouchableHighlight>
+
+        </View>
+
       </ScrollView>
     )
   }
 
 }
 
-HomeScreen.propTypes = {
-
-  building: PropTypes.string,
-  user: PropTypes.string,
-  img: PropTypes.string
-
-};
 
 const mapStateToProps = (state) => {
-  return {
-
-    building: state.login.username.buildingid,
-    user: state.login.username.first_name,
-    img: state.login.username.image
-  }
+  return {}
 }
 
 const mapDispatchToProps = (dispatch) => {

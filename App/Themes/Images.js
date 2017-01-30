@@ -7,7 +7,9 @@ const images = {
   ignite: require('../Images/ignite_logo.png'),
   tileBg: require('../Images/tile_bg.png'),
   background: require('../Images/BG.png'),
-  login_bg: require('../Images/login_bg.png')
+  login_bg: require('../Images/login_bg.png'),
+  sell: require('../Images/sell.png'),
+  buy: require('../Images/buy.png'),
 }
 
 export default images
