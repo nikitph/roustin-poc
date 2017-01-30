@@ -31,7 +31,8 @@ class HomeScreen extends React.Component {
     this.state = {
       building: props.building,
       user: props.user,
-      index: 0
+      index: 0,
+      aplay: true
     }
   }
 
@@ -39,20 +40,26 @@ class HomeScreen extends React.Component {
     this.setState({
       index,
     });
+    if (index == 0) {
+      this.setState({
+        aplay: false
+      });
+    }
+
   };
 
   render() {
     let img = 'http://127.0.0.1:5000/static/img/256px-Weiser_State_Forest_Walking_Path.jpg';
     console.tron.log(img);
     const {
-      index
+      index, aplay
     } = this.state;
 
     return (
       <ScrollView style={styles.container}>
         <View style={styles.containertwo}>
           <View style={styles.slideContainer}>
-            <AutoPlaySwipeableViews index={index} onChangeIndex={this.handleChangeIndex}>
+            <AutoPlaySwipeableViews index={index} onChangeIndex={this.handleChangeIndex} autoplay={aplay}>
               <View style={{flexDirection:'row', flex:1, alignItems:'center'}}>
                 <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20, marginLeft:20}}/>
                 <View style={{justifyContent:'flex-end', padding:10}}>
