@@ -10,6 +10,7 @@ const images = {
   login_bg: require('../Images/login_bg.png'),
   sell: require('../Images/sell.png'),
   buy: require('../Images/buy.png'),
+  rupee: require('../Images/rupee.png'),
 }
 
 export default images

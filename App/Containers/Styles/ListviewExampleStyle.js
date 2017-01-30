@@ -17,7 +17,7 @@ export default StyleSheet.create({
     margin: 2,
     marginLeft: 5,
     marginRight: 5,
-    justifyContent: 'flex-start',
+    justifyContent: 'space-between',
     flexDirection: 'row'
   },
   boldLabel: {

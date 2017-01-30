@@ -10,6 +10,8 @@ import AlertMessage from '../Components/AlertMessage'
 
 // Styles
 import styles from './Styles/ListviewExampleStyle'
+import {Images} from '../Themes'
+
 
 class ListviewExample extends React.Component {
 
@@ -65,17 +67,24 @@ class ListviewExample extends React.Component {
       console.tron.log(rowdata);
       NavigationActions.deviceInfo({data: "Custom data", title: 'Custom title'});
     };
-    console.tron.log(rowData.image);
+    console.tron.log(rowData);
     //console.tron.log(this);
     let img = 'http://127.0.0.1:5000/' + rowData.image;
     return (
       <TouchableOpacity onPress={() => onPressButton(rowData)}>
 
         <View style={styles.row}>
-          <Image source={{uri: img}} style={{width:60, height:60}}/>
-          <View style={{justifyContent:'flex-end', padding:5}}>
-            <Text style={styles.label}>{rowData.details}</Text>
+          <Image source={{uri: img}} style={{ flex:0.15, width:60, height:60}}/>
+          <View style={{justifyContent:'flex-start', padding:5, flex:0.65}}>
+            <Text
+              style={{fontFamily:'AvenirNext-UltraLight', fontSize:14, fontWeight:'300'}}>{rowData.item_summary}</Text>
+            <Text style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'100'}}>{rowData.details}</Text>
           </View>
+          <Image source={Images.rupee}
+                 style={{ flex:0.15,  resizeMode:'contain',width:60, height:60, opacity:0.4, justifyContent:'center'}}>
+            <Text
+              style={{fontFamily:'AvenirNext-UltraLight', fontSize:18, fontWeight:'400', color:'red', backgroundColor:'transparent'}}>{rowData.price}</Text>
+          </Image>
         </View>
       </TouchableOpacity>
     )
