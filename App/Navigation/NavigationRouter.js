@@ -46,7 +46,7 @@ class NavigationRouter extends Component {
             <Scene key='apiTesting' component={APITestingScreen} title='API Testing' />
             <Scene key='townshipInput' component={TownshipInputScreen} title='Theme' />
             <Scene key='itemInput' component={ItemInput} title='Theme'/>
-            <Scene key='homeScreen' component={HomeScreen} title='Theme'/>
+            <Scene key='homeScreen' component={HomeScreen} title='Theme' navBar={CustomNavBar}/>
 
 
             {/* Custom navigation bar example */}

@@ -9,7 +9,7 @@ export default {
     height: Metrics.navBarHeight,
     paddingTop: Metrics.smallMargin,
     paddingHorizontal: 5,
-    backgroundColor: Colors.background,
+    backgroundColor: '#F3E0AB',
     flexDirection: 'row',
     justifyContent: 'space-between'
   },
@@ -26,7 +26,8 @@ export default {
     alignSelf: 'center',
     marginTop: Metrics.baseMargin,
     height: Metrics.icons.large,
-    width: Metrics.icons.large
+    width: Metrics.icons.large,
+    resizeMode: 'contain'
   },
   rightButtons: {
     flex: 1,
