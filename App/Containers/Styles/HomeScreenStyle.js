@@ -13,6 +13,6 @@ export default StyleSheet.create({
     height: Metrics.screenHeight,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    backgroundColor: '#F3E0AB'
+    backgroundColor: '#FFDD51'
   }
 })
