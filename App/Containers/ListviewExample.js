@@ -65,7 +65,7 @@ class ListviewExample extends React.Component {
   renderRow (rowData) {
     onPressButton = (rowdata) => {
       console.tron.log(rowdata);
-      NavigationActions.deviceInfo({data: "Custom data", title: 'Custom title'});
+      NavigationActions.itemDetail({data: rowdata, title: rowdata.item_summary});
     };
     console.tron.log(rowData);
     //console.tron.log(this);
@@ -77,7 +77,7 @@ class ListviewExample extends React.Component {
           <Image source={{uri: img}} style={{ flex:0.15, width:60, height:60}}/>
           <View style={{justifyContent:'flex-start', padding:5, flex:0.65}}>
             <Text
-              style={{fontFamily:'AvenirNext-UltraLight', fontSize:14, fontWeight:'300'}}>{rowData.item_summary}</Text>
+              style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'300'}}>{rowData.item_summary.toUpperCase()}</Text>
             <Text style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'100'}}>{rowData.details}</Text>
           </View>
           <Image source={Images.rupee}

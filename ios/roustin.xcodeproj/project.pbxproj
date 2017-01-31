@@ -30,7 +30,6 @@
 		5B1DEAEB7E5F4578A6348292 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5C334850D50F4A71B781C85B /* libAirMaps.a */; };
 		5C635A0493424B5499024E35 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = AD785C2C9368499DA52BBFF8 /* SimpleLineIcons.ttf */; };
 		5E9157361DD0AC6A00FF2AA8 /* libRCTAnimation.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5E9157331DD0AC6500FF2AA8 /* libRCTAnimation.a */; };
-		7172570E836D4E80B781F301 /* libRNSpinkit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1B265FE7031E46BAB6682689 /* libRNSpinkit.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		83DC227E2C2E40189ADD779F /* libRNDeviceInfo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7244A9964ED54396AEBF10ED /* libRNDeviceInfo.a */; };
 		987FBE7D93C845FAAB2AE4D8 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 069E4173BFCB46D39B696E13 /* Foundation.ttf */; };
@@ -247,7 +246,6 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = roustin/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = roustin/main.m; sourceTree = "<group>"; };
 		146833FF1AC3E56700842450 /* React.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = React.xcodeproj; path = "../node_modules/react-native/React/React.xcodeproj"; sourceTree = "<group>"; };
-		1B265FE7031E46BAB6682689 /* libRNSpinkit.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libRNSpinkit.a; sourceTree = "<group>"; };
 		259CB2ECD0264D089622F23A /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		266B030AC5D048BC9DA1D3FE /* ReactNativeConfig.xcodeproj */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = "wrapper.pb-project"; name = ReactNativeConfig.xcodeproj; path = "../node_modules/react-native-config/ios/ReactNativeConfig.xcodeproj"; sourceTree = "<group>"; };
 		28F41E54033F489CB01CF888 /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 				9E93DC2B2817454D886A95C3 /* libRNI18n.a in Frameworks */,
 				5B1DEAEB7E5F4578A6348292 /* libAirMaps.a in Frameworks */,
 				D3F7230210C6492098581906 /* libRNVectorIcons.a in Frameworks */,
-				7172570E836D4E80B781F301 /* libRNSpinkit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
