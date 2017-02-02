@@ -73,17 +73,16 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
 
   const postMessage = (params) => api.post('message', {
     building: "5776e6e9d6827b30a8b72a68",
-    sender: "",
     sender_name: "",
     buyer: "",
     buyer_name: "",
     seller: "",
     seller_name: "",
-    _id: "",
+    m_id: "67899",
     text: "",
     createdAt: "",
     item: "",
-    user: "5776b9ddd6827b2fb89e2085"
+    sender: "5776b9ddd6827b2fb89e2085"
   });
 
   const getMessage = (params) => api.get('message');

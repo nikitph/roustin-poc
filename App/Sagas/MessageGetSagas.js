@@ -17,13 +17,13 @@ export function * getMessageGet(api, action) {
   const {data} = action
   // make the call to the api
   const response = yield call(api.getMessage, data)
-  console.log(response.data);
+  console.tron.log(response.data);
 
   // success?
   if (response.ok) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(MessageGetActions.messageGetSuccess(response.data))
+    yield put(MessageGetActions.messageGetSuccess(response.data._items))
   } else {
     yield put(MessageGetActions.messageGetFailure())
   }

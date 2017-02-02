@@ -1,11 +1,13 @@
 // @flow
 
-import React from 'react'
+import React, {PropTypes} from 'react'
 import {ScrollView, Text, KeyboardAvoidingView, View} from 'react-native'
 import {connect} from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 
 import MessageGetActions from '../Redux/MessageGetRedux'
+import MessagePostActions from '../Redux/MessagePostRedux'
+
 import {Metrics} from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -51,6 +53,7 @@ class ItemChatScreen extends React.Component {
   }
 
   onSend(messages = []) {
+    this.props.requestMessageGet(this.state);
     this.setState((previousState) => {
       console.tron.log(messages);
 
@@ -61,6 +64,8 @@ class ItemChatScreen extends React.Component {
   }
 
   render() {
+
+    console.tron.log(this.state.messages)
     return (
       <ScrollView style={styles.container}>
         <View style={styles.containertwo}>
@@ -91,14 +96,17 @@ const mapStateToProps = (state) => {
   return {
 
     seller: state.item.user,
-    buyer: state.login.username._id.$oid
+    buyer: state.login.username._id.$oid,
+    messages: state.message
 
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestMessageGet: (params) => dispatch(MessageGetActions.messageGetRequest(params))
+    requestMessageGet: (params) => dispatch(MessageGetActions.messageGetRequest(params)),
+    requestMessagePost: (params) => dispatch(MessagePostActions.messagePostRequest(params))
+
   }
 }
 
