@@ -50,7 +50,6 @@ class HomeScreen extends React.Component {
 
   render() {
     let img = 'http://127.0.0.1:5000/static/img/256px-Weiser_State_Forest_Walking_Path.jpg';
-    console.tron.log(img);
     const {
       index, aplay
     } = this.state;
@@ -84,13 +83,13 @@ class HomeScreen extends React.Component {
             />
           </View>
 
-          <TouchableHighlight onPress={()=> NavigationActions.listviewExample()} style={{flex:0.42}}>
+          <TouchableHighlight onPress={()=> NavigationActions.listviewExample()} style={{flex:0.45}}>
             <Image source={Images.buy}
                    style={{flex:0.45, alignSelf:'center', resizeMode:'cover'}}>
 
             </Image>
           </TouchableHighlight>
-          <TouchableHighlight onPress={()=> NavigationActions.itemInput()} style={{flex:0.42}}>
+          <TouchableHighlight onPress={()=> NavigationActions.itemInput()} style={{flex:0.45}}>
 
             <Image source={Images.sell}
                    style={{flex:0.45, alignSelf:'center', resizeMode:'cover'}}>

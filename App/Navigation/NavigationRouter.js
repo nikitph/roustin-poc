@@ -24,6 +24,7 @@ import TownshipInputScreen from "../Containers/TownshipInputScreen";
 import ItemInput from '../Containers/ItemInput'
 import HomeScreen from "../Containers/HomeScreen";
 import ItemDetailScreen from "../Containers/ItemDetailScreen";
+import ItemChatScreen from "../Containers/ItemChatScreen";
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
@@ -49,6 +50,7 @@ class NavigationRouter extends Component {
             <Scene key='itemInput' component={ItemInput} title='Theme'/>
             <Scene key='homeScreen' component={HomeScreen} title='Theme' navBar={CustomNavBar}/>
             <Scene key='itemDetail' component={ItemDetailScreen} title='Theme'/>
+            <Scene key='itemChat' component={ItemChatScreen} title='Theme'/>
 
 
 

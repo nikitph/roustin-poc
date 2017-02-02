@@ -16,8 +16,10 @@ export default StyleSheet.create({
     backgroundColor: '#F2DFAE'
   },
   slideContainer: {
-    flex: 0.5,
-    position: 'relative'
+    flex: 0.1,
+    backgroundColor: '#F4B459',
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   slide: {
     flex: 1,

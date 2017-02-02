@@ -63,12 +63,11 @@ class ListviewExample extends React.Component {
     return <MyCustomCell title={rowData.title} description={rowData.description} />
   *************************************************************/
   renderRow (rowData) {
+
     onPressButton = (rowdata) => {
-      console.tron.log(rowdata);
       NavigationActions.itemDetail({data: rowdata, title: rowdata.item_summary});
     };
-    console.tron.log(rowData);
-    //console.tron.log(this);
+
     let img = 'http://127.0.0.1:5000/' + rowData.image;
     return (
       <TouchableOpacity onPress={() => onPressButton(rowData)}>
