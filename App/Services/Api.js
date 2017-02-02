@@ -47,7 +47,8 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
   // Since we can't hide from that, we embrace it by getting out of the
   // way at this level.
   //
-  const postTownship = (params) => api.post('township', {website:params,
+  const postTownship = (params) => api.post('township', {
+    website: params,
     city:"foster city",
     name:"vishal society 2",
     builder:"pol",
@@ -70,6 +71,23 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
 
   const getItem = (params) => api.get('item');
 
+  const postMessage = (params) => api.post('message', {
+    building: "5776e6e9d6827b30a8b72a68",
+    sender: "",
+    sender_name: "",
+    buyer: "",
+    buyer_name: "",
+    seller: "",
+    seller_name: "",
+    _id: "",
+    text: "",
+    createdAt: "",
+    item: "",
+    user: "5776b9ddd6827b2fb89e2085"
+  });
+
+  const getMessage = (params) => api.get('message');
+
 
   // ------
   // STEP 3
@@ -88,7 +106,9 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
     postTownship,
     getTownship,
     postItem,
-    getItem
+    getItem,
+    postMessage,
+    getMessage
   }
 };
 

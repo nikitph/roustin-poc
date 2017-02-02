@@ -4,7 +4,8 @@ import React from 'react'
 import {ScrollView, Text, KeyboardAvoidingView, View} from 'react-native'
 import {connect} from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+
+import MessageGetActions from '../Redux/MessageGetRedux'
 import {Metrics} from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/FontAwesome'
@@ -75,6 +76,17 @@ class ItemChatScreen extends React.Component {
 
 }
 
+ItemChatScreen.propTypes = {
+
+  requestMessageGet: PropTypes.func,
+  isfetching: PropTypes.bool,
+  building: PropTypes.string,
+  user: PropTypes.string,
+  seller: PropTypes.string,
+  buyer: PropTypes.string
+
+};
+
 const mapStateToProps = (state) => {
   return {
 
@@ -85,7 +97,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+    requestMessageGet: (params) => dispatch(MessageGetActions.messageGetRequest(params))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemChatScreen)
