@@ -57,6 +57,7 @@ class ItemDetailScreen extends React.Component {
 
   onPressButton = (id) => {
     console.tron.log(id);
+    this.props.shouldEdit ? NavigationActions.itemInput({data: id, title: 'p'}) :
     NavigationActions.itemChat({data: id, title: 'p'});
   };
 
@@ -98,7 +99,8 @@ class ItemDetailScreen extends React.Component {
           <View style={styles.slideContainer}>
             <TouchableOpacity onPress={() => this.onPressButton(this.props.data)}
                               style={{flex:1, alignItems: 'center',justifyContent: 'center'}}>
-              <Text style={{fontFamily:'AvenirNext-UltraLight', fontSize:20, fontWeight:'200',alignSelf:'center'}}>CONTACT SELLER</Text>
+              <Text
+                style={{fontFamily:'AvenirNext-UltraLight', fontSize:20, fontWeight:'200',alignSelf:'center'}}>{this.props.shouldEdit ? 'EDIT ITEM' : 'CONTACT SELLER'}</Text>
 
             </TouchableOpacity>
 

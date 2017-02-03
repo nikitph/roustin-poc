@@ -67,7 +67,7 @@ class ListviewExample extends React.Component {
   renderRow (rowData) {
 
     onPressButton = (rowdata) => {
-      NavigationActions.itemDetail({data: rowdata, title: rowdata.item_summary});
+      NavigationActions.itemDetail({data: rowdata, title: rowdata.item_summary, shouldEdit: false});
     };
 
     let img = 'http://127.0.0.1:5000/' + rowData.image;

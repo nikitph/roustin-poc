@@ -38,14 +38,27 @@ class ItemInput extends React.Component {
 
   constructor(props: Object) {
     super(props);
-    this.state = {
-      item_summary: null,
-      details: null,
-      price: 1,
-      sold: false,
-      negotiable: true,
-      building: props.building,
-      user: props.user
+    if (props.isediting) {
+      this.state = {
+        item_summary: null,
+        details: null,
+        price: 1,
+        sold: false,
+        negotiable: true,
+        building: props.building,
+        user: props.user
+      }
+    }
+    else {
+      this.state = {
+        item_summary: null,
+        details: null,
+        price: 1,
+        sold: false,
+        negotiable: true,
+        building: props.building,
+        user: props.user
+      }
     }
 
   }
