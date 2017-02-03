@@ -55,6 +55,9 @@ export default class PresentationScreen extends React.Component {
             Home Screen
           </RoundedButton>
 
+          <RoundedButton onPress={NavigationActions.myItems}>
+            Home Screen
+          </RoundedButton>
           <View style={styles.centered}>
             <Text style={styles.subtitle}>Made with ❤️ by Infinite Red</Text>
           </View>

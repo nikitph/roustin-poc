@@ -89,7 +89,7 @@ class HomeScreen extends React.Component {
 
             </Image>
           </TouchableHighlight>
-          <TouchableHighlight onPress={()=> NavigationActions.itemInput()} style={{flex:0.45}}>
+          <TouchableHighlight onPress={()=> NavigationActions.myItems()} style={{flex:0.45}}>
 
             <Image source={Images.sell}
                    style={{flex:0.45, alignSelf:'center', resizeMode:'cover'}}>

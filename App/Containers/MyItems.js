@@ -1,19 +1,22 @@
 // @flow
 
 import React, {PropTypes} from 'react'
-import {View, Text, ListView, Image, TouchableOpacity} from 'react-native'
-import { connect } from 'react-redux'
+import {View, Text, ListView, TouchableOpacity, Image} from 'react-native'
+import {connect} from 'react-redux'
+// import { Actions as NavigationActions } from 'react-native-router-flux'
+import {filter} from 'ramda'
 import {Actions as NavigationActions} from 'react-native-router-flux'
+
 
 // For empty lists
 import AlertMessage from '../Components/AlertMessage'
 
 // Styles
-import styles from './Styles/ListviewExampleStyle'
+import styles from './Styles/MyItemsStyle'
 import {Images} from '../Themes'
 
 
-class ListviewExample extends React.Component {
+class MyItems extends React.Component {
 
   state: {
 
@@ -23,23 +26,25 @@ class ListviewExample extends React.Component {
 
   };
 
-  constructor (props) {
+  constructor(props) {
     super(props);
     /* ***********************************************************
-    * STEP 1
-    * This is an array of objects with the properties you desire
-    * Usually this should come from Redux mapStateToProps
-    *************************************************************/
+     * STEP 1
+     * This is an array of objects with the properties you desire
+     * Usually this should come from Redux mapStateToProps
+     *************************************************************/
+    console.tron.log(props.user);
+    console.tron.log(props.item_data);
     const dataObjects = props.item_data.filter(function (el) {
-      return el.user != '5776b9ddd6827b2fb89e2085';
+      return el.user == '5776b9ddd6827b2fb89e2085';
     });
 
     /* ***********************************************************
-    * STEP 2
-    * Teach datasource how to detect if rows are different
-    * Make this function fast!  Perhaps something like:
-    *   (r1, r2) => r1.id !== r2.id}
-    *************************************************************/
+     * STEP 2
+     * Teach datasource how to detect if rows are different
+     * Make this function fast!  Perhaps something like:
+     *   (r1, r2) => r1.id !== r2.id}
+     *************************************************************/
     const rowHasChanged = (r1, r2) => r1 !== r2
 
     // DataSource configured
@@ -51,20 +56,15 @@ class ListviewExample extends React.Component {
     }
   }
 
-  static onPressButton = () => {
-    console.tron.log('yup');
-    NavigationActions.deviceInfo();
-  }
-
   /* ***********************************************************
-  * STEP 3
-  * `renderRow` function -How each cell/row should be rendered
-  * It's our best practice to place a single component here:
-  *
-  * e.g.
-    return <MyCustomCell title={rowData.title} description={rowData.description} />
-  *************************************************************/
-  renderRow (rowData) {
+   * STEP 3
+   * `renderRow` function -How each cell/row should be rendered
+   * It's our best practice to place a single component here:
+   *
+   * e.g.
+   return <MyCustomCell title={rowData.title} description={rowData.description} />
+   *************************************************************/
+  renderRow(rowData) {
 
     onPressButton = (rowdata) => {
       NavigationActions.itemDetail({data: rowdata, title: rowdata.item_summary});
@@ -92,33 +92,33 @@ class ListviewExample extends React.Component {
   }
 
   /* ***********************************************************
-  * STEP 4
-  * If your datasource is driven by Redux, you'll need to
-  * reset it when new data arrives.
-  * DO NOT! place `cloneWithRows` inside of render, since render
-  * is called very often, and should remain fast!  Just replace
-  * state's datasource on newProps.
-  *
-  * e.g.
-    componentWillReceiveProps (newProps) {
-      if (newProps.someData) {
-        this.setState({
-          dataSource: this.state.dataSource.cloneWithRows(newProps.someData)
-        })
-      }
-    }
-  *************************************************************/
+   * STEP 4
+   * If your datasource is driven by Redux, you'll need to
+   * reset it when new data arrives.
+   * DO NOT! place `cloneWithRows` inside of render, since render
+   * is called very often, and should remain fast!  Just replace
+   * state's datasource on newProps.
+   *
+   * e.g.
+   componentWillReceiveProps (newProps) {
+   if (newProps.someData) {
+   this.setState({
+   dataSource: this.state.dataSource.cloneWithRows(newProps.someData)
+   })
+   }
+   }
+   *************************************************************/
 
   // Used for friendly AlertMessage
   // returns true if the dataSource is empty
-  noRowData () {
+  noRowData() {
     return this.state.dataSource.getRowCount() === 0
   }
 
-  render () {
+  render() {
     return (
       <View style={styles.container}>
-        <AlertMessage title='Nothing to See Here, Move Along' show={this.noRowData()} />
+        <AlertMessage title='Nothing to See Here, Move Along' show={this.noRowData()}/>
         <ListView
           contentContainerStyle={styles.listContent}
           dataSource={this.state.dataSource}
@@ -130,21 +130,25 @@ class ListviewExample extends React.Component {
   }
 }
 
-ListviewExample.propTypes = {
+MyItems.propTypes = {
 
   isfetching: PropTypes.bool,
-  item_data: PropTypes.array
+  item_data: PropTypes.array,
+  user: PropTypes.string
 
 };
 
 const mapStateToProps = (state) => {
-
-  console.log(state.item);
   return {
-
     isfetching: state.item.fetching,
-    item_data: state.item.payload._items
+    item_data: state.item.payload._items,
+    user: state.login.username._id.$oid
   }
-}
+};
 
-export default connect(mapStateToProps)(ListviewExample)
+const mapDispatchToProps = (dispatch) => {
+  return {}
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(MyItems)
