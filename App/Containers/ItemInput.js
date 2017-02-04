@@ -29,10 +29,11 @@ const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 
 stylesheet.formGroup.normal.marginBottom = 10;
 stylesheet.formGroup.error.marginBottom = 10;
-stylesheet.controlLabel.normal.color = '#000000';
+stylesheet.controlLabel.normal.color = 'red';
 stylesheet.controlLabel.normal.fontSize = 17;
+stylesheet.controlLabel.normal.fontFamily = 'Cochin';
 stylesheet.controlLabel.normal.marginBottom = 7;
-stylesheet.controlLabel.normal.fontWeight = '500';
+stylesheet.controlLabel.normal.fontWeight = '300';
 stylesheet.controlLabel.error.color = '#a94442';
 stylesheet.controlLabel.error.fontSize = 17;
 stylesheet.controlLabel.error.marginBottom = 7;
@@ -54,13 +55,6 @@ stylesheet.textbox.normal.borderRadius = 4;
 stylesheet.textbox.normal.borderColor = '#cccccc';
 stylesheet.textbox.normal.borderWidth = 1;
 stylesheet.textbox.normal.marginBottom = 5;
-stylesheet.textbox.error.color = '#000000';
-stylesheet.textbox.error.fontSize = 17;
-stylesheet.textbox.error.height = 36;
-stylesheet.textbox.error.padding = 7;
-stylesheet.textbox.error.borderRadius = 4;
-stylesheet.textbox.error.borderColor = '#a94442';
-stylesheet.textbox.error.borderWidth = 1;
 stylesheet.textbox.error.marginBottom = 5;
 stylesheet.textbox.notEditable.fontSize = 17;
 stylesheet.textbox.notEditable.height = 36;
@@ -126,7 +120,7 @@ let Item = t.struct({
   negotiable: t.Boolean,        // a boolean
 });
 
-let options = {}; // optional rendering options (see documentation)
+let options = {stylesheet: stylesheet}; // optional rendering options (see documentation)
 
 
 class ItemInput extends React.Component {
