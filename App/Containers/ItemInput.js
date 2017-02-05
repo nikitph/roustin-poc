@@ -3,7 +3,7 @@
 import React, {PropTypes} from 'react'
 import {ScrollView, Text, KeyboardAvoidingView, View, Keyboard, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
-import ItemActions from '../Redux/ItemRedux'
+import ItemPostActions from '../Redux/ItemPostRedux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 import {Colors, Images, Metrics} from '../Themes'
@@ -127,7 +127,7 @@ class ItemInput extends React.Component {
 
   constructor(props: Object) {
     super(props);
-    if (props.isediting) {
+    if (props.shouldEdit) {
       this.state = {
         item_summary: null,
         details: null,
@@ -166,8 +166,7 @@ class ItemInput extends React.Component {
 
   onChange = (value, path) => {
     // validate a field on every change
-    console.log(this.props);
-    console.log(this.refs.form.getValue());
+    console.tron.log(this.refs.form.getValue());
     this.refs.form.getComponent(path).validate();
     this.setState(this.refs.form.getValue());
   };
@@ -188,7 +187,7 @@ class ItemInput extends React.Component {
           />
             </View>
             <View style={styles.slideContainer}>
-              <TouchableOpacity onPress={() => this.onPressButton(this.props.data)}
+              <TouchableOpacity onPress={() => this.handlePressSend(this.state)}
                                 style={{flex:1, alignItems: 'center',justifyContent: 'center'}}>
                 <Text
                   style={{fontFamily:'AvenirNext-UltraLight', fontSize:20, fontWeight:'200',alignSelf:'center'}}>SAVE</Text>
@@ -219,7 +218,7 @@ ItemInput.propTypes = {
 const mapStateToProps = (state) => {
   return {
 
-    isfetching: state.item.fetching,
+    isfetching: state.itemPost.fetching,
     building: state.login.username.buildingid,
     user: state.login.username._id.$oid
   }
@@ -228,7 +227,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
 
-    requestItem: (params) => dispatch(ItemActions.itemRequest(params))
+    requestItem: (params) => dispatch(ItemPostActions.itemPostRequest(params))
   }
 };
 

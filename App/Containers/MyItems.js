@@ -140,8 +140,8 @@ MyItems.propTypes = {
 
 const mapStateToProps = (state) => {
   return {
-    isfetching: state.item.fetching,
-    item_data: state.item.payload._items,
+    isfetching: state.itemGet.fetching,
+    item_data: state.itemGet.payload._items,
     user: state.login.username._id.$oid
   }
 };

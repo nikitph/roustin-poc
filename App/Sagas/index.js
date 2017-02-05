@@ -13,7 +13,8 @@ import {OpenScreenTypes} from '../Redux/OpenScreenRedux'
 import {ItemTypes} from '../Redux/ItemRedux'
 import {MessageGetTypes} from '../Redux/MessageGetRedux'
 import {MessagePostTypes} from '../Redux/MessagePostRedux'
-
+import {ItemGetTypes} from '../Redux/ItemGetRedux'
+import {ItemPostTypes} from '../Redux/ItemPostRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -24,6 +25,8 @@ import {openScreen} from './OpenScreenSagas'
 import {getItems, postItem} from './ItemSagas'
 import {getMessageGet} from './MessageGetSagas'
 import {getMessagePost} from './MessagePostSagas'
+import {getItemGet} from "./ItemGetSagas";
+import {getItemPost} from "./ItemPostSagas";
 
 
 /* ------------- API ------------- */
@@ -48,6 +51,8 @@ export default function * root() {
     //takeLatest(ItemTypes.ITEM_REQUEST, postItem, api),
     takeLatest(MessageGetTypes.MESSAGE_GET_REQUEST, getMessageGet, api),
     takeLatest(MessagePostTypes.MESSAGE_POST_REQUEST, getMessagePost, api),
+    takeLatest(ItemGetTypes.ITEM_GET_REQUEST, getItemGet, api),
+    takeLatest(ItemPostTypes.ITEM_POST_REQUEST, getItemPost, api),
 
   ]
 }

@@ -1,6 +1,6 @@
 import { put, select } from 'redux-saga/effects'
 import TemperatureActions from '../Redux/TemperatureRedux'
-import ItemActions from '../Redux/ItemRedux'
+import ItemGetActions from '../Redux/ItemGetRedux'
 
 import { is } from 'ramda'
 
@@ -38,6 +38,6 @@ export function * startup (action) {
   // only fetch new temps when we don't have one yet
   if (!is(Number, temp)) {
     yield put(TemperatureActions.temperatureRequest('San Francisco'));
-    yield put(ItemActions.itemRequest('San Francisco'));
+    yield put(ItemGetActions.itemGetRequest('San Francisco'));
   }
 }

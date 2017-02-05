@@ -10,7 +10,8 @@ export default () => {
     temperature: require('./TemperatureRedux').reducer,
     login: require('./LoginRedux').reducer,
     search: require('./SearchRedux').reducer,
-    item: require('./ItemRedux').reducer,
+    itemGet: require('./ItemGetRedux').reducer,
+    itemPost: require('./ItemPostRedux').reducer,
     message: require('./MessageGetRedux').reducer
   })
 

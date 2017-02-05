@@ -57,7 +57,7 @@ class ItemDetailScreen extends React.Component {
 
   onPressButton = (id) => {
     console.tron.log(id);
-    this.props.shouldEdit ? NavigationActions.itemInput({data: id, title: 'p'}) :
+    this.props.shouldEdit ? NavigationActions.itemInput({data: id, title: 'p', shouldEdit: true}) :
     NavigationActions.itemChat({data: id, title: 'p'});
   };
 
