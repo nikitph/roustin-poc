@@ -38,6 +38,8 @@ export function * startup (action) {
   // only fetch new temps when we don't have one yet
   if (!is(Number, temp)) {
     yield put(TemperatureActions.temperatureRequest('San Francisco'));
-    yield put(ItemGetActions.itemGetRequest('San Francisco'));
   }
+
+  yield put(ItemGetActions.itemGetRequest('San Francisco'));
+
 }

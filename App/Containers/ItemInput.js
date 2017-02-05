@@ -218,7 +218,7 @@ ItemInput.propTypes = {
 const mapStateToProps = (state) => {
   return {
 
-    isfetching: state.itemPost.fetching,
+    isfetching: state.itempost.fetching,
     building: state.login.username.buildingid,
     user: state.login.username._id.$oid
   }

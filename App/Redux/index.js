@@ -11,7 +11,7 @@ export default () => {
     login: require('./LoginRedux').reducer,
     search: require('./SearchRedux').reducer,
     itemGet: require('./ItemGetRedux').reducer,
-    itemPost: require('./ItemPostRedux').reducer,
+    itempost: require('./ItemPostRedux').reducer,
     message: require('./MessageGetRedux').reducer
   })
 

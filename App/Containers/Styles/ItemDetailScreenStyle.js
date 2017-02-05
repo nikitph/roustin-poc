@@ -7,7 +7,9 @@ import Metrics from '../../Themes/Metrics'
 
 export default StyleSheet.create({
   ...ApplicationStyles.screen,
-  container: {},
+  container: {
+    backgroundColor: '#F4B459'
+  },
   containertwo: {
     flex: 1,
     height: Metrics.screenHeight,

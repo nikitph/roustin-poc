@@ -25,7 +25,7 @@ export function * getItemPost(api, action) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
     yield put(ItemPostActions.itemPostSuccess(response.data));
-    yield call(NavigationActions.deviceInfo, {title: 'p'});
+    yield call(NavigationActions.modal, {title: 'p'});
   } else {
     yield put(ItemPostActions.itemPostFailure())
   }
