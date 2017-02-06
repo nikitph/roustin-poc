@@ -30,7 +30,7 @@ import I18n from 'react-native-i18n'
 let RNUploader = NativeModules.RNUploader;
 
 
-class ImageUpload extends React.Component {
+export class ImageUpload extends React.Component {
 
   constructor(props) {
     super(props);
@@ -104,7 +104,7 @@ class ImageUpload extends React.Component {
     });
 
     let opts = {
-      url: 'https://posttestserver.com/post.php',
+      url: 'http://127.0.0.1:5000/uploader',
       files: files,
       params: {name: 'test-app'}
     };
@@ -120,7 +120,7 @@ class ImageUpload extends React.Component {
       let responseString = res.data;
 
       console.log('Upload complete with status ' + status);
-      console.log(responseString);
+      console.tron.log(responseString);
       this.setState({uploading: false, uploadStatus: status});
     });
 

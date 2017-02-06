@@ -142,8 +142,8 @@ const mapStateToProps = (state) => {
   console.log(state.item);
   return {
 
-    isfetching: state.item.fetching,
-    item_data: state.item.payload._items
+    isfetching: state.itemget.fetching,
+    item_data: state.itemget.payload._items
   }
 }
 
