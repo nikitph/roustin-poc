@@ -27,6 +27,7 @@ import ItemDetailScreen from "../Containers/ItemDetailScreen";
 import ItemChatScreen from "../Containers/ItemChatScreen";
 import MyItems from "../Containers/MyItems";
 import ConfirmationPage from "../Containers/ConfirmationPage";
+import ImageUpload from "../Containers/ImageUpload";
 
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
@@ -59,6 +60,8 @@ class NavigationRouter extends Component {
             </Scene>
             {/* Custom navigation bar example */}
             <Scene key='deviceInfo' component={DeviceInfoScreen} title='Device Info' />
+            <Scene key='deviceInfor' component={ImageUpload} title='Device Info'/>
+
           </Scene>
         </Scene>
       </Router>

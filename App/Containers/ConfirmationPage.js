@@ -1,7 +1,7 @@
 // @flow
 
 import React from 'react'
-import {ScrollView, Text, Animated, View, Dimensions} from 'react-native'
+import {ScrollView, Text, Animated, View, Dimensions, TouchableHighlight} from 'react-native'
 import {connect} from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -22,21 +22,18 @@ class ConfirmationPage extends React.Component {
   render() {
     return (
 
-      <Modal animationDuration={200}
-             swipeThreshold={100}
-             style={styles.modal}
-             position={"center"}
-             entry={"bottom"}
-             isOpen={this.state.isOpen}
-             onClosed={NavigationActions.dismiss}>
+
+      <View>
         <Text style={styles.text}>
           ReactNativeModalBox
         </Text>
+        <TouchableHighlight onPress={() => NavigationActions.pop()}>
+          <Text>close</Text>
+        </TouchableHighlight>
         <Text>
           (swipe down to close)
         </Text>
-      </Modal>
-
+      </View>
     );
   }
 

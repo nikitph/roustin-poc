@@ -12,7 +12,7 @@ export default StyleSheet.create({
   modal: {
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'orange'
+    backgroundColor: '#F4B459',
   },
   text: {
     color: "black",

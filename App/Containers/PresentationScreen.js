@@ -55,7 +55,7 @@ export default class PresentationScreen extends React.Component {
             Home Screen
           </RoundedButton>
 
-          <RoundedButton onPress={NavigationActions.myItems}>
+          <RoundedButton onPress={NavigationActions.deviceInfor}>
             Home Screen
           </RoundedButton>
           <View style={styles.centered}>
