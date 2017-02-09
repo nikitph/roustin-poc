@@ -16,6 +16,7 @@ import Styles from './Styles/LoginScreenStyle'
 import {Images, Metrics, Colors} from '../Themes'
 import LoginActions from '../Redux/LoginRedux'
 import Icon from 'react-native-vector-icons/FontAwesome'
+import * as Animatable from 'react-native-animatable'
 
 import { Actions as NavigationActions } from 'react-native-router-flux'
 import I18n from 'react-native-i18n'
@@ -115,7 +116,7 @@ class LoginScreen extends React.Component {
     const textInputStyle = editable ? Styles.textInput : Styles.textInputReadonly
     return (
       <ScrollView contentContainerStyle={{justifyContent: 'center'}} style={[Styles.container, {height: this.state.visibleHeight}]} keyboardShouldPersistTaps>
-        <Image source={Images.logo} style={[Styles.topLogo]}/>
+        <Animatable.Image animation='fadeIn' source={Images.logo} style={[Styles.topLogo]}/>
         <Image source={Images.login_bg} style={[Styles.loginbg]}/>
 
         <View style={Styles.form}>

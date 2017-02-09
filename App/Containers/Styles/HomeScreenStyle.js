@@ -30,6 +30,8 @@ export default StyleSheet.create({
   },
   slide3: {
     backgroundColor: '#F4B459',
+    flex: 1,
+    flexDirection: 'row'
   },
   text: {
     color: '#fff',

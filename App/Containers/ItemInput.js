@@ -186,15 +186,13 @@ class ItemInput extends React.Component {
             onChange={this.onChange}
           />
             </View>
-            <View style={styles.slideContainer}>
               <TouchableOpacity onPress={() => this.handlePressSend(this.state)}
-                                style={{flex:1, alignItems: 'center',justifyContent: 'center'}}>
+                                style={styles.slideContainer}>
                 <Text
                   style={{fontFamily:'AvenirNext-UltraLight', fontSize:20, fontWeight:'200',alignSelf:'center'}}>SAVE</Text>
 
               </TouchableOpacity>
 
-            </View>
           </View>
           <Spinner visible={this.props.isfetching} textContent={"Loading..."} textStyle={{color: '#FFF'}}/>
           {/*<Text>{this.props.isfetching ? 'true' : 'false'}</Text>*/}

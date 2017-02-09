@@ -95,7 +95,7 @@ ItemChatScreen.propTypes = {
 const mapStateToProps = (state) => {
   return {
 
-    seller: state.item.user,
+    seller: state.itemget.user,
     buyer: state.login.username._id.$oid,
     messages: state.message
 

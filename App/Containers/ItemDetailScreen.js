@@ -96,15 +96,13 @@ class ItemDetailScreen extends React.Component {
               </Image>
             </View>
           </View>
-          <View style={styles.slideContainer}>
             <TouchableOpacity onPress={() => this.onPressButton(this.props.data)}
-                              style={{flex:1, alignItems: 'center',justifyContent: 'center'}}>
+                              style={styles.slideContainer}>
               <Text
                 style={{fontFamily:'AvenirNext-UltraLight', fontSize:20, fontWeight:'200',alignSelf:'center'}}>{this.props.shouldEdit ? 'EDIT ITEM' : 'CONTACT SELLER'}</Text>
 
             </TouchableOpacity>
 
-          </View>
 
         </View>
 

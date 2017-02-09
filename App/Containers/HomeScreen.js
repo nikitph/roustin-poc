@@ -8,8 +8,8 @@ import {connect} from 'react-redux'
 import {Metrics} from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
-import {Images} from '../Themes'
-import Animatable from 'react-native-animatable'
+import {Images, Colors} from '../Themes'
+import * as Animatable from 'react-native-animatable'
 import {Actions as NavigationActions} from 'react-native-router-flux'
 import SwipeableViews  from 'react-swipeable-views-native';
 import {autoPlay} from 'react-swipeable-views-utils';
@@ -56,7 +56,7 @@ class HomeScreen extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-        <View style={styles.containertwo}>
+        <Animatable.View animation='fadeIn' style={styles.containertwo}>
           <View style={styles.slideContainer}>
             <AutoPlaySwipeableViews index={index} onChangeIndex={this.handleChangeIndex} autoplay={aplay}>
               <View style={{flexDirection:'row', flex:1, alignItems:'center'}}>
@@ -66,14 +66,12 @@ class HomeScreen extends React.Component {
                 </View>
               </View>
               <View style={[styles.slide, styles.slide2]}>
-                <Text style={styles.text}>
-                  slide n°2
-                </Text>
+                <Text
+                  style={{fontFamily:'AvenirNext-UltraLight', fontSize:32, fontWeight:'100'}}>You have n messages</Text>
               </View>
               <View style={[styles.slide, styles.slide3]}>
-                <Text style={styles.text}>
-                  slide n°3
-                </Text>
+                <Icon name='trophy' size={Metrics.icons.medium} color={Colors.error}/>
+                <Icon name='home' size={Metrics.icons.medium} color={Colors.ember}/>
               </View>
             </AutoPlaySwipeableViews>
             <Pagination
@@ -98,7 +96,7 @@ class HomeScreen extends React.Component {
             </Image>
           </TouchableHighlight>
 
-        </View>
+        </Animatable.View>
 
       </ScrollView>
     )
