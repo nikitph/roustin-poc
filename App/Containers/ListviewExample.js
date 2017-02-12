@@ -16,7 +16,6 @@ import {Images} from '../Themes'
 class ListviewExample extends React.Component {
 
   state: {
-
     dataSource: Object,
     isfetching: false,
     user: null

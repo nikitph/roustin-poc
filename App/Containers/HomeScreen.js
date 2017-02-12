@@ -70,7 +70,8 @@ class HomeScreen extends React.Component {
                   style={{fontFamily:'AvenirNext-UltraLight', fontSize:32, fontWeight:'100'}}>You have n messages</Text>
               </View>
               <View style={[styles.slide, styles.slide3]}>
-                <Icon name='trophy' size={Metrics.icons.medium} color={Colors.error}/>
+                <Icon name='trophy' size={Metrics.icons.medium} color={Colors.error}
+                      onPress={()=> NavigationActions.messageList()}/>
                 <Icon name='home' size={Metrics.icons.medium} color={Colors.ember}/>
               </View>
             </AutoPlaySwipeableViews>
