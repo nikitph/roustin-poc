@@ -13,7 +13,7 @@ import {
 } from 'react-native'
 import {connect} from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import MessageGetActions from '../Redux/MessageGetRedux'
 import {Metrics} from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
@@ -36,6 +36,7 @@ class ItemDetailScreen extends React.Component {
 
   constructor(props: Object) {
     super(props);
+    props.requestMessageGet(props.buyer);
     this.state = {
       item_data: props.data,
       index: 0,
@@ -113,12 +114,25 @@ class ItemDetailScreen extends React.Component {
 
 }
 
+ItemDetailScreen.propTypes = {
+
+  requestMessageGet: PropTypes.func
+
+};
+
 const mapStateToProps = (state) => {
-  return {}
+  return {
+    buyer: state.login.username._id.$oid
+
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+
+    requestMessageGet: (params) => dispatch(MessageGetActions.messageGetRequest(params))
+
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(ItemDetailScreen)

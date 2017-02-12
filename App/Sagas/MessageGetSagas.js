@@ -21,9 +21,15 @@ export function * getMessageGet(api, action) {
 
   // success?
   if (response.ok) {
+    const kelvin = path(['data', '_items', 'user'], response);
+    response.data._items.forEach((element) => {
+      element.user = JSON.parse(element.user);
+      console.tron.log(element.createdAt);
+      element.createdAt = new Date(element.createdAt);
+    });
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
-    yield put(MessageGetActions.messageGetSuccess(response.data._items))
+    yield put(MessageGetActions.messageGetSuccess(response.data._items.reverse()))
   } else {
     yield put(MessageGetActions.messageGetFailure())
   }

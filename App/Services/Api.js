@@ -62,6 +62,7 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
   const postItem = (params) => api.post('item', {
     building: "5776e6e9d6827b30a8b72a68",
     item_summary: "test 2",
+    user_name: "Dukan dar",
     price: "500",
     details: "sd",
     sold: true,
@@ -72,17 +73,18 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
   const getItem = (params) => api.get('item');
 
   const postMessage = (params) => api.post('message', {
-    building: "5776e6e9d6827b30a8b72a68",
-    sender_name: "",
-    buyer: "",
-    buyer_name: "",
-    seller: "",
-    seller_name: "",
-    m_id: "67899",
-    text: "",
-    createdAt: "",
-    item: "",
-    sender: "5776b9ddd6827b2fb89e2085"
+    building: params.building,
+    sender: params.sender,
+    sender_name: params.sender_name,
+    buyer: params.buyer,
+    buyer_name: params.buyer_name,
+    seller: params.seller,
+    seller_name: params.seller_name,
+    text: params.text,
+    item: params.item,
+    createdAt: params.createdAt,
+    user: '{' +
+    ' "_id" : "' + params.user._id + '" , "name" : "' + params.user.name + '" }'
   });
 
   const getMessage = (params) => api.get('message');

@@ -14,9 +14,9 @@ import {call, put} from 'redux-saga/effects'
 import MessagePostActions from '../Redux/MessagePostRedux'
 
 export function * getMessagePost(api, action) {
-  const {data} = action
+  const {data} = action;
   // make the call to the api
-  const response = yield call(api.postMessage, data)
+  const response = yield call(api.postMessage, data);
 
   // success?
   if (response.ok) {

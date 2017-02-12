@@ -135,7 +135,8 @@ class ItemInput extends React.Component {
         sold: false,
         negotiable: true,
         building: props.building,
-        user: props.user
+        user: props.user,
+        user_name: props.user_name
       }
     }
     else {
@@ -146,7 +147,9 @@ class ItemInput extends React.Component {
         sold: false,
         negotiable: true,
         building: props.building,
-        user: props.user
+        user: props.user,
+        user_name: props.user_name
+
       }
     }
 
@@ -209,7 +212,8 @@ ItemInput.propTypes = {
   requestItem: PropTypes.func,
   isfetching: PropTypes.bool,
   building: PropTypes.string,
-  user: PropTypes.string
+  user: PropTypes.string,
+  user_name: PropTypes.string
 
 };
 
@@ -218,7 +222,8 @@ const mapStateToProps = (state) => {
 
     isfetching: state.itempost.fetching,
     building: state.login.username.buildingid,
-    user: state.login.username._id.$oid
+    user: state.login.username._id.$oid,
+    user_name: state.login.username.first_name
   }
 };
 
