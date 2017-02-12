@@ -56,10 +56,10 @@ class HomeScreen extends React.Component {
 
     return (
       <ScrollView style={styles.container}>
-        <Animatable.View animation='fadeIn' style={styles.containertwo}>
+        <View style={styles.containertwo}>
           <View style={styles.slideContainer}>
             <AutoPlaySwipeableViews index={index} onChangeIndex={this.handleChangeIndex} autoplay={aplay}>
-              <View style={{flexDirection:'row', flex:1, alignItems:'center'}}>
+              <View style={{flexDirection:'row', flex:1, alignItems:'center', backgroundColor:'#F4B459'}}>
                 <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20, marginLeft:20}}/>
                 <View style={{justifyContent:'flex-end', padding:10}}>
                   <Text style={{fontFamily:'AvenirNext-UltraLight', fontSize:32, fontWeight:'100'}}>Hi nikit</Text>
@@ -81,22 +81,23 @@ class HomeScreen extends React.Component {
             />
           </View>
 
-          <TouchableHighlight onPress={()=> NavigationActions.listviewExample()} style={{flex:0.45}}>
-            <Image source={Images.buy}
+          <TouchableHighlight onPress={()=> NavigationActions.listviewExample()}
+                              style={{flex:0.45, backgroundColor:'#F2DFAE'}}>
+            <Animatable.Image animation='fadeInLeft' source={Images.buy}
                    style={{flex:0.45, alignSelf:'center', resizeMode:'cover'}}>
 
-            </Image>
+            </Animatable.Image>
           </TouchableHighlight>
-          <TouchableHighlight onPress={()=> NavigationActions.myItems()} style={{flex:0.45}}>
+          <TouchableHighlight onPress={()=> NavigationActions.myItems()} style={{flex:0.45, backgroundColor:'#F2DFAE'}}>
 
-            <Image source={Images.sell}
-                   style={{flex:0.45, alignSelf:'center', resizeMode:'cover'}}>
+            <Animatable.Image animation="fadeInRight" source={Images.sell}
+                              style={{flex:0.45, alignSelf:'center', resizeMode:'cover', backgroundColor:'#F2DFAE'}}>
 
 
-            </Image>
+            </Animatable.Image>
           </TouchableHighlight>
 
-        </Animatable.View>
+        </View>
 
       </ScrollView>
     )

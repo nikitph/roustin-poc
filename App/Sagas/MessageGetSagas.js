@@ -21,7 +21,6 @@ export function * getMessageGet(api, action) {
 
   // success?
   if (response.ok) {
-    const kelvin = path(['data', '_items', 'user'], response);
     response.data._items.forEach((element) => {
       element.user = JSON.parse(element.user);
       console.tron.log(element.createdAt);
