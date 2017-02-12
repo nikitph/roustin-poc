@@ -53,6 +53,11 @@
               id="Shape" fill="#CBB292"></path>
           </g>
         </g>
+        <text id="Sell"
+              transform="translate(274.733505, 168.733505) rotate(-45.000000) translate(-274.733505, -168.733505) "
+              font-family="AmericanTypewriter, American Typewriter" font-size="36" font-weight="normal" fill="#CBB292">
+          <tspan x="212.671786" y="180.733505">Sell</tspan>
+        </text>
       </g>
     </g>
   </g>

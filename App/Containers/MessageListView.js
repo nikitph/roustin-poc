@@ -30,7 +30,8 @@ class MessageListView extends React.Component {
      * Usually this should come from Redux mapStateToProps
      *************************************************************/
     const dataObjects = props.message_data.filter(function (el) {
-      return el.seller == props.user || el.buyer == props.user;
+      console.tron.log(el);
+      return el.buyer == props.user;
     });
 
     /* ***********************************************************
@@ -39,7 +40,7 @@ class MessageListView extends React.Component {
      * Make this function fast!  Perhaps something like:
      *   (r1, r2) => r1.id !== r2.id}
      *************************************************************/
-    const rowHasChanged = (r1, r2) => r1.seller !== r2.seller && r1.buyer != r2.buyer && r1.item != r2.item
+    const rowHasChanged = (r1, r2) => !(r1.seller == r2.seller && r1.item == r2.item);
 
     // DataSource configured
     const ds = new ListView.DataSource({rowHasChanged})
@@ -79,13 +80,14 @@ class MessageListView extends React.Component {
           <Image source={{uri: img}} style={{ flex:0.15, width:60, height:60}}/>
           <View style={{justifyContent:'flex-start', padding:5, flex:0.65}}>
             <Text
-              style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'300'}}>{rowData.item_summary}</Text>
-            <Text style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'100'}}>{rowData.details}</Text>
+              style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'300'}}>{rowData.seller}</Text>
+            <Text
+              style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'100'}}>{rowData.item}, {rowData.buyer}</Text>
           </View>
           <Image source={Images.rupee}
                  style={{ flex:0.15,  resizeMode:'contain',width:60, height:60, opacity:0.4, justifyContent:'center'}}>
             <Text
-              style={{fontFamily:'AvenirNext-UltraLight', fontSize:18, fontWeight:'400', color:'red', backgroundColor:'transparent'}}>{rowData.price}</Text>
+              style={{fontFamily:'AvenirNext-UltraLight', fontSize:18, fontWeight:'400', color:'red', backgroundColor:'transparent'}}>{rowData.buyer}</Text>
           </Image>
         </View>
       </TouchableOpacity>
