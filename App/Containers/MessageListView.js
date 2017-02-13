@@ -11,6 +11,7 @@ import AlertMessage from '../Components/AlertMessage'
 // Styles
 import styles from './Styles/MessageListViewStyle'
 import {Images} from '../Themes'
+import _ from 'lodash'
 
 
 class MessageListView extends React.Component {
@@ -29,10 +30,16 @@ class MessageListView extends React.Component {
      * This is an array of objects with the properties you desire
      * Usually this should come from Redux mapStateToProps
      *************************************************************/
-    const dataObjects = props.message_data.filter(function (el) {
-      console.tron.log(el);
-      return el.buyer == props.user;
+    let dataObjects = props.message_data.filter(function (el) {
+      return el.buyer === props.user || el.seller === props.user;
     });
+    console.tron.log(dataObjects);
+
+
+    dataObjects = _.map(dataObjects, function (elm) {
+      return _.pick(elm, 'buyer', 'seller', 'item', 'buyer_name', 'seller_name');
+    });
+    dataObjects = _.uniqWith(dataObjects, _.isEqual);
 
     /* ***********************************************************
      * STEP 2
@@ -40,7 +47,11 @@ class MessageListView extends React.Component {
      * Make this function fast!  Perhaps something like:
      *   (r1, r2) => r1.id !== r2.id}
      *************************************************************/
-    const rowHasChanged = (r1, r2) => !(r1.seller == r2.seller && r1.item == r2.item);
+    const rowHasChanged = (r1, r2) => {
+      let d = (r1.seller !== r2.seller) && (r1.item !== r2.item);
+      console.tron.log(d);
+      return d
+    };
 
     // DataSource configured
     const ds = new ListView.DataSource({rowHasChanged})
@@ -80,9 +91,9 @@ class MessageListView extends React.Component {
           <Image source={{uri: img}} style={{ flex:0.15, width:60, height:60}}/>
           <View style={{justifyContent:'flex-start', padding:5, flex:0.65}}>
             <Text
-              style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'300'}}>{rowData.seller}</Text>
+              style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'300'}}>{rowData.seller_name}</Text>
             <Text
-              style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'100'}}>{rowData.item}, {rowData.buyer}</Text>
+              style={{fontFamily:'AvenirNext-UltraLight', fontSize:12, fontWeight:'100'}}>{rowData.item}, {rowData.buyer_name}</Text>
           </View>
           <Image source={Images.rupee}
                  style={{ flex:0.15,  resizeMode:'contain',width:60, height:60, opacity:0.4, justifyContent:'center'}}>
