@@ -31,7 +31,7 @@ class HomeScreen extends React.Component {
     super(props);
     this.state = {
       building: props.building,
-      user: props.user,
+      user: props.name,
       index: 0,
       aplay: true
     }
@@ -63,7 +63,8 @@ class HomeScreen extends React.Component {
               <View style={{flexDirection:'row', flex:1, alignItems:'center', backgroundColor:'#F4B459'}}>
                 <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20, marginLeft:20}}/>
                 <View style={{justifyContent:'flex-end', padding:10}}>
-                  <Text style={{fontFamily:'AvenirNext-UltraLight', fontSize:32, fontWeight:'100'}}>Hi nikit</Text>
+                  <Text
+                    style={{fontFamily:'AvenirNext-UltraLight', fontSize:28, fontWeight:'100'}}>Hi {this.state.user}</Text>
                 </View>
               </View>
               <View style={[styles.slide, styles.slide2]}>
@@ -112,7 +113,9 @@ class HomeScreen extends React.Component {
 
 
 const mapStateToProps = (state) => {
-  return {}
+  return {
+    name: state.login.username.first_name
+  }
 }
 
 const mapDispatchToProps = (dispatch) => {
