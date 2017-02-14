@@ -64,15 +64,11 @@ class HomeScreen extends React.Component {
                 <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20, marginLeft:20}}/>
                 <View style={{justifyContent:'flex-end', padding:10}}>
                   <Text
-                    style={{fontFamily:'AvenirNext-UltraLight', fontSize:28, fontWeight:'100'}}>Hi {this.state.user}</Text>
+                    style={{fontFamily:'AvenirNext-UltraLight', fontSize:24, fontWeight:'100'}}>Hi {this.state.user}</Text>
                 </View>
               </View>
-              <View style={[styles.slide, styles.slide2]}>
-                <Text
-                  style={{fontFamily:'AvenirNext-UltraLight', fontSize:32, fontWeight:'100'}}>You have n messages</Text>
-              </View>
               <View style={[styles.slide, styles.slide3]}>
-                <RoundedButton onPress={NavigationActions.itemInput}>
+                <RoundedButton onPress={NavigationActions.messageList}>
                   My Messages
                 </RoundedButton>
                 <RoundedButton onPress={NavigationActions.itemInput}>
@@ -81,7 +77,7 @@ class HomeScreen extends React.Component {
               </View>
             </AutoPlaySwipeableViews>
             <Pagination
-              dots={3}
+              dots={2}
               index={index}
               onChangeIndex={this.handleChangeIndex}
             />

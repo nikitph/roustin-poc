@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     margin: 3,
   },
   active: {
-    backgroundColor: '#319fd6',
+    backgroundColor: 'brown',
   },
 });
 
