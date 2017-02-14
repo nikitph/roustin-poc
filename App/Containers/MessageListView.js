@@ -80,7 +80,10 @@ class MessageListView extends React.Component {
     console.tron.log(rowData);
 
     onPressButton = (rowdata) => {
-      NavigationActions.itemDetail({data: rowdata, title: rowdata.item_summary, shouldEdit: false});
+      let messages = this.props.message_data.filter(function (el) {
+        return el.buyer === rowdata.buyer && el.seller === rowdata.seller && el.item === rowdata.item;
+      });
+      NavigationActions.itemChat({messages: messages});
     };
 
     let img = 'http://127.0.0.1:5000/' + rowData.image;

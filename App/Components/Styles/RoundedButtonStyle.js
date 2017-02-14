@@ -5,18 +5,19 @@ import { Fonts, Colors, Metrics } from '../../Themes/'
 
 export default StyleSheet.create({
   button: {
-    height: 45,
-    borderRadius: 5,
-    marginHorizontal: Metrics.section,
-    marginVertical: Metrics.baseMargin,
-    backgroundColor: Colors.fire,
+    height: 40,
+    borderRadius: 20,
+    marginHorizontal: Metrics.smallMargin,
+    marginVertical: Metrics.smallMargin,
+    backgroundColor: '#B18A6A',
     justifyContent: 'center'
   },
   buttonText: {
-    color: Colors.snow,
+    color: '#FCDCB8',
     textAlign: 'center',
-    fontWeight: 'bold',
-    fontSize: Fonts.size.medium,
-    marginVertical: Metrics.baseMargin
+    fontWeight: '200',
+    fontFamily: 'Avenir',
+    fontSize: Fonts.size.small,
+    marginHorizontal: Metrics.baseMargin
   }
 })

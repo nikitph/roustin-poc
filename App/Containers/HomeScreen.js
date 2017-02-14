@@ -14,6 +14,7 @@ import {Actions as NavigationActions} from 'react-native-router-flux'
 import SwipeableViews  from 'react-swipeable-views-native';
 import {autoPlay} from 'react-swipeable-views-utils';
 import Pagination from '../Components/Pagination';
+import RoundedButton from '../Components/RoundedButton';
 
 
 // Styles
@@ -70,9 +71,12 @@ class HomeScreen extends React.Component {
                   style={{fontFamily:'AvenirNext-UltraLight', fontSize:32, fontWeight:'100'}}>You have n messages</Text>
               </View>
               <View style={[styles.slide, styles.slide3]}>
-                <Icon name='trophy' size={Metrics.icons.medium} color={Colors.error}
-                      onPress={()=> NavigationActions.messageList()}/>
-                <Icon name='home' size={Metrics.icons.medium} color={Colors.ember}/>
+                <RoundedButton onPress={NavigationActions.itemInput}>
+                  My Messages
+                </RoundedButton>
+                <RoundedButton onPress={NavigationActions.itemInput}>
+                  Profile
+                </RoundedButton>
               </View>
             </AutoPlaySwipeableViews>
             <Pagination
