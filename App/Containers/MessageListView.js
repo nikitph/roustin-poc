@@ -12,6 +12,7 @@ import AlertMessage from '../Components/AlertMessage'
 import styles from './Styles/MessageListViewStyle'
 import {Images} from '../Themes'
 import _ from 'lodash'
+import {Actions as NavigationActions} from 'react-native-router-flux'
 
 
 class MessageListView extends React.Component {
@@ -83,7 +84,14 @@ class MessageListView extends React.Component {
       let messages = this.props.message_data.filter(function (el) {
         return el.buyer === rowdata.buyer && el.seller === rowdata.seller && el.item === rowdata.item;
       });
-      NavigationActions.itemChat({messages: messages});
+      NavigationActions.chatDetail({
+        messages: messages,
+        seller: rowdata.seller,
+        buyer: rowdata.buyer,
+        seller_name: rowdata.seller_name,
+        buyer_name: rowdata.buyer_name,
+        item: rowdata.item
+      });
     };
 
     let img = 'http://127.0.0.1:5000/' + rowData.image;
@@ -120,7 +128,7 @@ class MessageListView extends React.Component {
         <ListView
           contentContainerStyle={styles.listContent}
           dataSource={this.state.dataSource}
-          renderRow={this.renderRow}
+          renderRow={data => this.renderRow(data)}
           pageSize={15}
         />
       </View>
