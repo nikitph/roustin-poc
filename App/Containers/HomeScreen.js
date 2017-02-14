@@ -4,7 +4,7 @@ import React, {PropTypes} from 'react'
 import {ScrollView, Text, KeyboardAvoidingView, Image, View, TouchableHighlight} from 'react-native'
 import {connect} from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
-// import YourActions from '../Redux/YourRedux'
+import MessageGetActions from '../Redux/MessageGetRedux'
 import {Metrics} from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
@@ -38,6 +38,7 @@ class HomeScreen extends React.Component {
   }
 
   handleChangeIndex = (index) => {
+    this.props.requestMessageGet(this.state.user);
     this.setState({
       index,
     });
@@ -107,6 +108,11 @@ class HomeScreen extends React.Component {
 
 }
 
+HomeScreen.propTypes = {
+
+  requestMessageGet: PropTypes.func
+
+};
 
 const mapStateToProps = (state) => {
   return {
@@ -115,7 +121,9 @@ const mapStateToProps = (state) => {
 }
 
 const mapDispatchToProps = (dispatch) => {
-  return {}
+  return {
+    requestMessageGet: (params) => dispatch(MessageGetActions.messageGetRequest(params))
+  }
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(HomeScreen)

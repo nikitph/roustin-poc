@@ -50,7 +50,6 @@ class MessageListView extends React.Component {
      *************************************************************/
     const rowHasChanged = (r1, r2) => {
       let d = (r1.seller !== r2.seller) && (r1.item !== r2.item);
-      console.tron.log(d);
       return d
     };
 
@@ -63,6 +62,23 @@ class MessageListView extends React.Component {
       user: props.user
     }
   }
+
+  // componentWillReceiveProps (newProps) {
+  //    if(newProps.message_data) {
+  //     let dataObjects = newProps.message_data.filter(function (el) {
+  //       return el.buyer === this.state.user || el.seller === this.state.user;
+  //     });
+  //     console.tron.log(dataObjects);
+  //     dataObjects = _.map(dataObjects, function (elm) {
+  //       return _.pick(elm, 'buyer', 'seller', 'item', 'buyer_name', 'seller_name');
+  //     });
+  //     dataObjects = _.uniqWith(dataObjects, _.isEqual);
+  //
+  //     this.setState({
+  //       dataSource: this.state.dataSource.cloneWithRows(dataObjects)
+  //     })
+  //   }
+  // }
 
   static onPressButton = () => {
     console.tron.log('yup');
