@@ -14,6 +14,7 @@ import {MessageGetTypes} from '../Redux/MessageGetRedux'
 import {MessagePostTypes} from '../Redux/MessagePostRedux'
 import {ItemGetTypes} from '../Redux/ItemGetRedux'
 import {ItemPostTypes} from '../Redux/ItemPostRedux'
+import {ItemPatchTypes} from '../Redux/ItemPatchRedux'
 
 /* ------------- Sagas ------------- */
 
@@ -25,6 +26,8 @@ import {getMessageGet} from './MessageGetSagas'
 import {getMessagePost} from './MessagePostSagas'
 import {getItemGet} from "./ItemGetSagas";
 import {getItemPost} from "./ItemPostSagas";
+import {getItemPatch} from "./ItemPatchSagas";
+
 
 
 /* ------------- API ------------- */
@@ -49,6 +52,8 @@ export default function * root() {
     takeLatest(MessagePostTypes.MESSAGE_POST_REQUEST, getMessagePost, api),
     takeLatest(ItemGetTypes.ITEM_GET_REQUEST, getItemGet, api),
     takeLatest(ItemPostTypes.ITEM_POST_REQUEST, getItemPost, api),
+    takeLatest(ItemPatchTypes.ITEM_PATCH_REQUEST, getItemPatch, api)
+
 
   ]
 }

@@ -12,6 +12,7 @@ export default () => {
     search: require('./SearchRedux').reducer,
     itemget: require('./ItemGetRedux').reducer,
     itempost: require('./ItemPostRedux').reducer,
+    itempatch: require('./ItemPatchRedux').reducer,
     message: require('./MessageGetRedux').reducer
   })
 

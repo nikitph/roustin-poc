@@ -1,5 +1,6 @@
 // a library to wrap and simplify api calls
 import apisauce from 'apisauce'
+import _ from 'lodash'
 
 // our "constructor"
 const create = (baseURL = 'http://127.0.0.1:8001/') => {
@@ -59,16 +60,9 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
 
   const getTownship = (params) => api.get('township');
 
-  const postItem = (params) => api.post('item', {
-    building: "5776e6e9d6827b30a8b72a68",
-    item_summary: "test 2",
-    user_name: "Dukan dar",
-    price: "500",
-    details: "sd",
-    sold: true,
-    negotiable: false,
-    user: "5776b9ddd6827b2fb89e2085"
-  });
+  const postItem = (params) => api.post('item', params);
+
+  const patchItem = (params) => api.patch('item/' + params._id, _.omit(params, ['_id', '_etag']), {headers: {"If-Match": params._etag}});
 
   const getItem = (params) => api.get('item');
 
@@ -109,7 +103,8 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
     postItem,
     getItem,
     postMessage,
-    getMessage
+    getMessage,
+    patchItem
   }
 };
 

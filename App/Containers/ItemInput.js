@@ -4,6 +4,8 @@ import React, {PropTypes} from 'react'
 import {ScrollView, Text, KeyboardAvoidingView, View, Keyboard, TouchableOpacity} from 'react-native'
 import {connect} from 'react-redux'
 import ItemPostActions from '../Redux/ItemPostRedux'
+import ItemPatchActions from '../Redux/ItemPatchRedux'
+
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 import {Colors, Images, Metrics} from '../Themes'
@@ -128,15 +130,18 @@ class ItemInput extends React.Component {
   constructor(props: Object) {
     super(props);
     if (props.shouldEdit) {
+      console.tron.log(props);
       this.state = {
-        item_summary: null,
-        details: null,
-        price: 1,
-        sold: false,
-        negotiable: true,
+        item_summary: props.data.item_summary,
+        details: props.data.details,
+        price: props.data.price,
+        sold: props.data.sold,
+        negotiable: props.data.negotiable,
         building: props.building,
         user: props.user,
-        user_name: props.user_name
+        user_name: props.user_name,
+        _id: props.data._id,
+        _etag: props.data._etag
       }
     }
     else {
@@ -156,7 +161,7 @@ class ItemInput extends React.Component {
   }
 
   handlePressSend = () => {
-    console.log(this.state);
+    this.props.shouldEdit ? this.props.patchItem(this.state) :
     this.props.requestItem(this.state);
   };
 
@@ -210,6 +215,7 @@ class ItemInput extends React.Component {
 ItemInput.propTypes = {
 
   requestItem: PropTypes.func,
+  patchItem: PropTypes.func,
   isfetching: PropTypes.bool,
   building: PropTypes.string,
   user: PropTypes.string,
@@ -220,7 +226,7 @@ ItemInput.propTypes = {
 const mapStateToProps = (state) => {
   return {
 
-    isfetching: state.itempost.fetching,
+    isfetching: state.itempost.fetching || state.itempatch.fetching,
     building: state.login.username.buildingid,
     user: state.login.username._id.$oid,
     user_name: state.login.username.first_name
@@ -230,7 +236,9 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
 
-    requestItem: (params) => dispatch(ItemPostActions.itemPostRequest(params))
+    requestItem: (params) => dispatch(ItemPostActions.itemPostRequest(params)),
+    patchItem: (params) => dispatch(ItemPatchActions.itemPatchRequest(params))
+
   }
 };
 
