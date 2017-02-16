@@ -20,7 +20,7 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
     },
     // 10 second timeout...
     timeout: 10000
-  })
+  });
 
   // Force OpenWeather API Key on all requests
   // api.addRequestTransform((request) => {
@@ -60,7 +60,16 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
 
   const getTownship = (params) => api.get('township');
 
-  const postItem = (params) => api.post('item', params);
+  const postItem = (params) => api.post('item', {
+    item_summary: params.item_summary,
+    details: params.details,
+    price: params.price.toString(),
+    sold: params.sold,
+    negotiable: params.negotiable,
+    building: params.building,
+    user: params.user,
+    user_name: params.user_name
+  });
 
   const patchItem = (params) => api.patch('item/' + params._id, _.omit(params, ['_id', '_etag']), {headers: {"If-Match": params._etag}});
 

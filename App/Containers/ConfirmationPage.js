@@ -1,12 +1,13 @@
 // @flow
 
 import React from 'react'
-import {ScrollView, Text, Animated, View, Dimensions, TouchableHighlight} from 'react-native'
+import {ScrollView, Text, Animated, View, Dimensions, TouchableHighlight, Image} from 'react-native'
 import {connect} from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
 import {Actions as NavigationActions} from 'react-native-router-flux'
 import Modal from 'react-native-modalbox'
+import {Images, Metrics, Colors} from '../Themes'
 
 // Styles
 import styles from './Styles/ConfirmationPageStyle'
@@ -21,18 +22,25 @@ class ConfirmationPage extends React.Component {
 
   render() {
     return (
+      <View style={styles.container}>
+        <View style={{flex:0.2, backgroundColor:'#F2DFAE',    justifyContent: 'center',alignItems: 'center'}}>
+        </View>
+        <View style={styles.modal}>
+          <Image source={Images.check} style={styles.topLogo}>
+          </Image>
+        </View>
+        <View style={{flex:0.4, backgroundColor:'#F2DFAE', justifyContent: 'flex-start',alignItems: 'center'}}>
+          <Text style={styles.text}>
+            {this.props.message}
+          </Text>
+        </View>
 
-
-      <View>
-        <Text style={styles.text}>
-          ReactNativeModalBox
-        </Text>
-        <TouchableHighlight onPress={() => NavigationActions.pop()}>
-          <Text>close</Text>
+        <TouchableHighlight onPress={() => {NavigationActions.popTo('homeScreen');}} style={{flex:0.1, backgroundColor:'#F4B459',    justifyContent: 'center',
+    alignItems: 'center'}}>
+          <Text
+            style={{fontFamily:'AvenirNext-UltraLight', fontSize:20, fontWeight:'200',alignSelf:'center'}}>CLOSE</Text>
         </TouchableHighlight>
-        <Text>
-          (swipe down to close)
-        </Text>
+
       </View>
     );
   }

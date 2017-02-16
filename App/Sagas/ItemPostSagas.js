@@ -16,16 +16,16 @@ import {Actions as NavigationActions} from 'react-native-router-flux'
 
 
 export function * getItemPost(api, action) {
-  const {data} = action
+  const {data} = action;
   // make the call to the api
-  const response = yield call(api.postItem, data)
+  const response = yield call(api.postItem, data);
 
   // success?
   if (response.ok) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
     yield put(ItemPostActions.itemPostSuccess(response.data));
-    yield call(NavigationActions.modal, {title: 'p'});
+    yield call(NavigationActions.modal, {message: 'Item Successfully Saved'});
   } else {
     yield put(ItemPostActions.itemPostFailure())
   }
