@@ -33,10 +33,9 @@ class MyItems extends React.Component {
      * This is an array of objects with the properties you desire
      * Usually this should come from Redux mapStateToProps
      *************************************************************/
-    console.tron.log(props.user);
-    console.tron.log(props.item_data);
+
     const dataObjects = props.item_data.filter(function (el) {
-      return el.user == '5776b9ddd6827b2fb89e2085';
+      return el.user == props.user;
     });
 
     /* ***********************************************************

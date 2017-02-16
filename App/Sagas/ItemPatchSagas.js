@@ -25,7 +25,7 @@ export function * getItemPatch(api, action) {
     // You might need to change the response here - do this with a 'transform',
     // located in ../Transforms/. Otherwise, just pass the data back from the api.
     yield put(ItemPatchActions.itemPatchSuccess(response.data));
-    yield call(NavigationActions.modal, {title: 'p'});
+    yield call(NavigationActions.modal, {message: 'Item Successfully Modified'});
 
   } else {
     yield put(ItemPatchActions.itemPatchFailure())

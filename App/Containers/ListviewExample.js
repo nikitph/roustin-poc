@@ -30,7 +30,7 @@ class ListviewExample extends React.Component {
     * Usually this should come from Redux mapStateToProps
     *************************************************************/
     const dataObjects = props.item_data.filter(function (el) {
-      return el.user != '5776b9ddd6827b2fb89e2085';
+      return el.user != props.user && !el.sold;
     });
 
     /* ***********************************************************
@@ -132,17 +132,19 @@ class ListviewExample extends React.Component {
 ListviewExample.propTypes = {
 
   isfetching: PropTypes.bool,
-  item_data: PropTypes.array
+  item_data: PropTypes.array,
+  user: PropTypes.string
 
 };
 
 const mapStateToProps = (state) => {
 
-  console.log(state.item);
   return {
 
     isfetching: state.itemget.fetching,
-    item_data: state.itemget.payload._items
+    item_data: state.itemget.payload._items,
+    user: state.login.username._id.$oid,
+
   }
 }
 

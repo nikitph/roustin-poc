@@ -31,9 +31,9 @@ const stylesheet = _.cloneDeep(t.form.Form.stylesheet);
 
 stylesheet.formGroup.normal.marginBottom = 10;
 stylesheet.formGroup.error.marginBottom = 10;
-stylesheet.controlLabel.normal.color = 'red';
+stylesheet.controlLabel.normal.color = '#414535';
 stylesheet.controlLabel.normal.fontSize = 17;
-stylesheet.controlLabel.normal.fontFamily = 'Cochin';
+stylesheet.controlLabel.normal.fontFamily = 'AvenirNext-UltraLight';
 stylesheet.controlLabel.normal.marginBottom = 7;
 stylesheet.controlLabel.normal.fontWeight = '300';
 stylesheet.controlLabel.error.color = '#a94442';
@@ -54,7 +54,7 @@ stylesheet.textbox.normal.fontSize = 17;
 stylesheet.textbox.normal.height = 36;
 stylesheet.textbox.normal.padding = 7;
 stylesheet.textbox.normal.borderRadius = 4;
-stylesheet.textbox.normal.borderColor = '#cccccc';
+stylesheet.textbox.normal.borderColor = '#618985';
 stylesheet.textbox.normal.borderWidth = 1;
 stylesheet.textbox.normal.marginBottom = 5;
 stylesheet.textbox.error.marginBottom = 5;
@@ -166,12 +166,6 @@ class ItemInput extends React.Component {
   };
 
 
-  handleOnChange = (value) => {
-    console.log(this.state);
-    this.setState(value);
-    console.log(this.state)
-  };
-
   onChange = (value, path) => {
     // validate a field on every change
     console.tron.log(this.refs.form.getValue());
@@ -185,7 +179,7 @@ class ItemInput extends React.Component {
       <ScrollView style={styles.container}>
         <KeyboardAvoidingView behavior='position'>
           <View style={styles.containertwo}>
-            <View style={{flex:0.9, marginTop:64, marginLeft:5, marginRight:5}}>
+            <View style={{flex:0.9, marginTop:64, marginLeft:20, marginRight:20}}>
           <Form
             ref="form"
             type={Item}

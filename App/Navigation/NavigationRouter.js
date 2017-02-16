@@ -31,6 +31,9 @@ import ImageUpload from "../Containers/ImageUpload";
 import MessageListView from "../Containers/MessageListView";
 import ChatDetail from "../Containers/ChatDetail";
 
+import {Actions as NavigationActions} from 'react-native-router-flux'
+import {Images} from '../Themes'
+
 /* **************************
 * Documentation: https://github.com/aksonov/react-native-router-flux
 ***************************/
@@ -56,7 +59,8 @@ class NavigationRouter extends Component {
             <Scene key='homeScreen' component={HomeScreen} title='Theme' navBar={CustomNavBar}/>
             <Scene key='itemDetail' component={ItemDetailScreen} title='Theme'/>
             <Scene key='itemChat' component={ItemChatScreen} title='Theme'/>
-            <Scene key='myItems' component={MyItems} title='Theme'/>
+            <Scene key='myItems' component={MyItems} title='My Items on Sale' rightTitle='New'
+                   onRight={()=>NavigationActions.itemInput()}/>
             <Scene key="modal" component={Modal} direction={"vertical"}>
               <Scene key='confPage' component={ConfirmationPage} title='Theme' direction={"vertical"}/>
             </Scene>
