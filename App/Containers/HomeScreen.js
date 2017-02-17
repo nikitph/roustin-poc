@@ -5,6 +5,8 @@ import {ScrollView, Text, KeyboardAvoidingView, Image, View, TouchableHighlight}
 import {connect} from 'react-redux'
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 import MessageGetActions from '../Redux/MessageGetRedux'
+import ItemGetActions from '../Redux/ItemGetRedux'
+
 import {Metrics} from '../Themes'
 // external libs
 import Icon from 'react-native-vector-icons/SimpleLineIcons'
@@ -31,7 +33,8 @@ class HomeScreen extends React.Component {
     super(props);
     this.state = {
       building: props.building,
-      user: props.name,
+      user: props.user,
+      name: props.name,
       index: 0,
       aplay: true
     }
@@ -50,6 +53,10 @@ class HomeScreen extends React.Component {
 
   };
 
+  componentDidMount() {
+    this.props.requestItemGet(this.state.user);
+  }
+
   render() {
     let img = 'http://127.0.0.1:5000/static/img/256px-Weiser_State_Forest_Walking_Path.jpg';
     const {
@@ -65,7 +72,7 @@ class HomeScreen extends React.Component {
                 <Image source={{uri: img}} style={{width:40, height:40, borderRadius:20, marginLeft:20}}/>
                 <View style={{justifyContent:'flex-end', padding:10}}>
                   <Text
-                    style={{fontFamily:'AvenirNext-UltraLight', fontSize:24, fontWeight:'100'}}>Hi {this.state.user}</Text>
+                    style={{fontFamily:'AvenirNext-UltraLight', fontSize:24, fontWeight:'100'}}>Hi {this.state.name}</Text>
                 </View>
               </View>
               <View style={[styles.slide, styles.slide3]}>
@@ -110,19 +117,28 @@ class HomeScreen extends React.Component {
 
 HomeScreen.propTypes = {
 
-  requestMessageGet: PropTypes.func
+  requestMessageGet: PropTypes.func,
+  requestItemGet: PropTypes.func,
+  name: PropTypes.string,
+  user: PropTypes.string
 
 };
 
 const mapStateToProps = (state) => {
   return {
-    name: state.login.username.first_name
+
+    name: state.login.username.first_name,
+    user: state.login.username._id.$oid
+
   }
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    requestMessageGet: (params) => dispatch(MessageGetActions.messageGetRequest(params))
+
+    requestMessageGet: (params) => dispatch(MessageGetActions.messageGetRequest(params)),
+    requestItemGet: (params) => dispatch(ItemGetActions.itemGetRequest(params))
+
   }
 }
 

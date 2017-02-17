@@ -73,7 +73,7 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
 
   const patchItem = (params) => api.patch('item/' + params._id, _.omit(params, ['_id', '_etag']), {headers: {"If-Match": params._etag}});
 
-  const getItem = (params) => api.get('item');
+  const getItem = (params) => api.get('item?where=' + 'user=="' + params + '"&&max_results=100');
 
   const postMessage = (params) => api.post('message', {
     building: params.building,

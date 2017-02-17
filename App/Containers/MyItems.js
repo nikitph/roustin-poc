@@ -6,6 +6,7 @@ import {connect} from 'react-redux'
 // import { Actions as NavigationActions } from 'react-native-router-flux'
 import {filter} from 'ramda'
 import {Actions as NavigationActions} from 'react-native-router-flux'
+import _ from 'lodash'
 
 
 // For empty lists
@@ -34,10 +35,17 @@ class MyItems extends React.Component {
      * Usually this should come from Redux mapStateToProps
      *************************************************************/
 
-    const dataObjects = props.item_data.filter(function (el) {
+    let dataObjects = props.item_data.filter(function (el) {
       return el.user == props.user;
     });
 
+    console.tron.log(dataObjects);
+
+    dataObjects = _.sortBy(dataObjects, function (value) {
+      return new Date(value._created);
+    });
+
+    console.tron.log(dataObjects);
     /* ***********************************************************
      * STEP 2
      * Teach datasource how to detect if rows are different
@@ -51,7 +59,7 @@ class MyItems extends React.Component {
 
     // Datasource is always in state
     this.state = {
-      dataSource: ds.cloneWithRows(dataObjects)
+      dataSource: ds.cloneWithRows(dataObjects.reverse())
     }
   }
 

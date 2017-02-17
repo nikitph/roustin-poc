@@ -40,6 +40,4 @@ export function * startup (action) {
     yield put(TemperatureActions.temperatureRequest('San Francisco'));
   }
 
-  yield put(ItemGetActions.itemGetRequest('San Francisco'));
-
 }
