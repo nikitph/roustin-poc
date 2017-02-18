@@ -41,11 +41,12 @@ class HomeScreen extends React.Component {
   }
 
   handleChangeIndex = (index) => {
-    this.props.requestMessageGet(this.state.user);
     this.setState({
       index,
     });
     if (index == 0) {
+      this.props.requestItemGet(this.state.user);
+      this.props.requestMessageGet(this.state.user);
       this.setState({
         aplay: false
       });
@@ -54,7 +55,7 @@ class HomeScreen extends React.Component {
   };
 
   componentWillMount() {
-    this.props.requestItemGet(this.state.user);
+    //this.props.requestItemGet(this.state.user);
   }
 
   render() {

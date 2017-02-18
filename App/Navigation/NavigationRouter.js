@@ -77,7 +77,7 @@ class NavigationRouter extends Component {
             <Scene key='messageList' component={MessageListView} title='Message List'/>
             <Scene key='chatDetail' component={ChatDetail} title='Message List'/>
             <Scene key='deviceInfor' component={ImageUpload} title='Device Info'/>
-            <Scene initial key='walk' component={WalkThroughScreen}/>
+            <Scene initial key='walk' component={WalkThroughScreen} hideNavBar/>
 
           </Scene>
         </Scene>
