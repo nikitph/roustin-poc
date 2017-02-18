@@ -37,6 +37,8 @@ export default {
   leftButtons: {
     flex: 1,
     justifyContent: 'flex-start',
-    flexDirection: 'row'
+    flexDirection: 'row',
+    marginTop: Metrics.doubleBaseMargin,
+    marginLeft: Metrics.baseMargin
   }
 }

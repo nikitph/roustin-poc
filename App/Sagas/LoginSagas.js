@@ -16,6 +16,6 @@ export function * login (api, { username, password }) {
   } else {
     // dispatch successful logins
     yield put(LoginActions.loginSuccess(response.data.username));
-    yield call(NavigationActions.homeScreen, {message: 'Item Successfully Modified'});
+    //yield call(NavigationActions.reset('homeScreen'), {message: 'Item Successfully Modified'});
   }
 }

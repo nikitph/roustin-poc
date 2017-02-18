@@ -31,9 +31,9 @@ export default {
     return (
       <TouchableOpacity onPress={openDrawer}>
         <Icon name='bars'
-          size={Metrics.icons.medium}
-          color={Colors.snow}
-          style={styles.navButtonLeft}
+              size={Metrics.icons.small}
+              color={Colors.snow}
+              style={styles.navButtonLeft}
         />
       </TouchableOpacity>
     )

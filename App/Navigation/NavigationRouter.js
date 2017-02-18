@@ -34,6 +34,7 @@ import ChatDetail from "../Containers/ChatDetail";
 import {Actions as NavigationActions} from 'react-native-router-flux'
 import {Images} from '../Themes'
 import WalkThroughScreen from "../Containers/WalkThroughScreen";
+import * as ActionConst from "react-native-router-flux";
 
 /* **************************
  * Documentation: https://github.com/aksonov/react-native-router-flux
@@ -46,12 +47,12 @@ class NavigationRouter extends Component {
         <Scene key='drawer' component={NavigationDrawer} open={false}>
           <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title}
                  leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-            <Scene initial key='presentationScreen' component={PresentationScreen} title='Ignite'
+            <Scene key='presentationScreen' component={PresentationScreen} title='Ignite'
                    renderLeftButton={NavItems.hamburgerButton}/>
             <Scene key='componentExamples' component={AllComponentsScreen} title='Components'/>
             <Scene key='usageExamples' component={UsageExamplesScreen} title='Usage' rightTitle='Example'
                    onRight={() => window.alert('Example Pressed')}/>
-            <Scene key="loginmodal" component={Modal} direction={"vertical"}>
+            <Scene key="loginModal" component={Modal} direction={"vertical"}>
               <Scene key='login' component={LoginScreen} title='Login' hideNavBar/>
             </Scene>
             <Scene key='listviewExample' component={ListviewExample} title='Listview Example'/>
@@ -63,7 +64,7 @@ class NavigationRouter extends Component {
             <Scene key='apiTesting' component={APITestingScreen} title='API Testing'/>
             <Scene key='townshipInput' component={TownshipInputScreen} title='Theme'/>
             <Scene key='itemInput' component={ItemInput} title='Theme'/>
-            <Scene key='homeScreen' component={HomeScreen} title='Theme' navBar={CustomNavBar}/>
+            <Scene key='homeScreen' component={HomeScreen} type={ActionConst.RESET} navBar={CustomNavBar}/>
             <Scene key='itemDetail' component={ItemDetailScreen} title='Theme'/>
             <Scene key='itemChat' component={ItemChatScreen} title='Theme'/>
             <Scene key='myItems' component={MyItems} title='My Items on Sale' rightTitle='New'
@@ -76,7 +77,7 @@ class NavigationRouter extends Component {
             <Scene key='messageList' component={MessageListView} title='Message List'/>
             <Scene key='chatDetail' component={ChatDetail} title='Message List'/>
             <Scene key='deviceInfor' component={ImageUpload} title='Device Info'/>
-            <Scene key='walk' component={WalkThroughScreen} hideNavBar/>
+            <Scene initial key='walk' component={WalkThroughScreen}/>
 
           </Scene>
         </Scene>
