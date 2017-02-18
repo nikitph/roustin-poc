@@ -12,7 +12,13 @@ const images = {
   buy: require('../Images/buy.png'),
   tag: require('../Images/tag.png'),
   rupee: require('../Images/rupee.png'),
-  check: require('../Images/check.png')
+  check: require('../Images/check.png'),
+  cart: require('../Images/cart.png'),
+  basket: require('../Images/basket.png'),
+  tilttag: require('../Images/tilttag.png'),
+  chats: require('../Images/chats.png')
+
+
 }
 
 export default images
