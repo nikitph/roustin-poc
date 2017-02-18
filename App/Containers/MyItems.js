@@ -116,6 +116,27 @@ class MyItems extends React.Component {
    }
    *************************************************************/
 
+  componentWillReceiveProps(newProps) {
+    if (newProps.item_data) {
+
+      let dataObjects = newProps.item_data.filter(function (el) {
+        return el.user == newProps.user;
+      });
+
+      console.tron.log(dataObjects);
+
+      dataObjects = _.sortBy(dataObjects, function (value) {
+        return new Date(value._created);
+      });
+
+      console.tron.log(dataObjects);
+
+      this.setState({
+        dataSource: this.state.dataSource.cloneWithRows(dataObjects)
+      })
+    }
+  }
+
   // Used for friendly AlertMessage
   // returns true if the dataSource is empty
   noRowData() {

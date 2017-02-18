@@ -53,7 +53,7 @@ class HomeScreen extends React.Component {
 
   };
 
-  componentDidMount() {
+  componentWillMount() {
     this.props.requestItemGet(this.state.user);
   }
 

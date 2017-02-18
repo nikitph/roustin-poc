@@ -27,7 +27,7 @@ export default class PresentationScreen extends React.Component {
             </Text>
           </View>
 
-          <RoundedButton onPress={NavigationActions.login}>
+          <RoundedButton onPress={NavigationActions.loginmodal}>
             {I18n.t('signIn')}
           </RoundedButton>
 
@@ -47,9 +47,8 @@ export default class PresentationScreen extends React.Component {
             Theme Screen
           </RoundedButton>
 
-          <RoundedButton onPress={NavigationActions.deviceInfo}>
-            Device Info Screen
-          </RoundedButton>
+          <RoundedButton onPress={NavigationActions.walk}>
+            walk </RoundedButton>
 
           <RoundedButton onPress={NavigationActions.homeScreen}>
             Home Screen

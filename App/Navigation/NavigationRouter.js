@@ -1,6 +1,6 @@
 // @flow
 
-import React, { Component } from 'react'
+import React, {Component} from 'react'
 import {Scene, Router, Modal} from 'react-native-router-flux'
 import Styles from './Styles/NavigationContainerStyle'
 import NavigationDrawer from './NavigationDrawer'
@@ -33,28 +33,35 @@ import ChatDetail from "../Containers/ChatDetail";
 
 import {Actions as NavigationActions} from 'react-native-router-flux'
 import {Images} from '../Themes'
+import WalkThroughScreen from "../Containers/WalkThroughScreen";
 
 /* **************************
-* Documentation: https://github.com/aksonov/react-native-router-flux
-***************************/
+ * Documentation: https://github.com/aksonov/react-native-router-flux
+ ***************************/
 
 class NavigationRouter extends Component {
-  render () {
+  render() {
     return (
       <Router>
         <Scene key='drawer' component={NavigationDrawer} open={false}>
-          <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title} leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
-            <Scene initial key='presentationScreen' component={PresentationScreen} title='Ignite' renderLeftButton={NavItems.hamburgerButton} />
-            <Scene key='componentExamples' component={AllComponentsScreen} title='Components' />
-            <Scene key='usageExamples' component={UsageExamplesScreen} title='Usage' rightTitle='Example' onRight={() => window.alert('Example Pressed')} />
-            <Scene key='login' component={LoginScreen} title='Login' hideNavBar />
-            <Scene key='listviewExample' component={ListviewExample} title='Listview Example' />
-            <Scene key='listviewGridExample' component={ListviewGridExample} title='Listview Grid' />
-            <Scene key='listviewSectionsExample' component={ListviewSectionsExample} title='Listview Sections' />
-            <Scene key='listviewSearchingExample' component={ListviewSearchingExample} title='Listview Searching' navBar={CustomNavBar} />
-            <Scene key='mapviewExample' component={MapviewExample} title='Mapview Example' />
-            <Scene key='apiTesting' component={APITestingScreen} title='API Testing' />
-            <Scene key='townshipInput' component={TownshipInputScreen} title='Theme' />
+          <Scene key='drawerChildrenWrapper' navigationBarStyle={Styles.navBar} titleStyle={Styles.title}
+                 leftButtonIconStyle={Styles.leftButton} rightButtonTextStyle={Styles.rightButton}>
+            <Scene initial key='presentationScreen' component={PresentationScreen} title='Ignite'
+                   renderLeftButton={NavItems.hamburgerButton}/>
+            <Scene key='componentExamples' component={AllComponentsScreen} title='Components'/>
+            <Scene key='usageExamples' component={UsageExamplesScreen} title='Usage' rightTitle='Example'
+                   onRight={() => window.alert('Example Pressed')}/>
+            <Scene key="loginmodal" component={Modal} direction={"vertical"}>
+              <Scene key='login' component={LoginScreen} title='Login' hideNavBar/>
+            </Scene>
+            <Scene key='listviewExample' component={ListviewExample} title='Listview Example'/>
+            <Scene key='listviewGridExample' component={ListviewGridExample} title='Listview Grid'/>
+            <Scene key='listviewSectionsExample' component={ListviewSectionsExample} title='Listview Sections'/>
+            <Scene key='listviewSearchingExample' component={ListviewSearchingExample} title='Listview Searching'
+                   navBar={CustomNavBar}/>
+            <Scene key='mapviewExample' component={MapviewExample} title='Mapview Example'/>
+            <Scene key='apiTesting' component={APITestingScreen} title='API Testing'/>
+            <Scene key='townshipInput' component={TownshipInputScreen} title='Theme'/>
             <Scene key='itemInput' component={ItemInput} title='Theme'/>
             <Scene key='homeScreen' component={HomeScreen} title='Theme' navBar={CustomNavBar}/>
             <Scene key='itemDetail' component={ItemDetailScreen} title='Theme'/>
@@ -65,10 +72,11 @@ class NavigationRouter extends Component {
               <Scene key='confPage' component={ConfirmationPage} title='Theme' direction={"vertical"}/>
             </Scene>
             {/* Custom navigation bar example */}
-            <Scene key='deviceInfo' component={DeviceInfoScreen} title='Device Info' />
+            <Scene key='deviceInfo' component={DeviceInfoScreen} title='Device Info'/>
             <Scene key='messageList' component={MessageListView} title='Message List'/>
             <Scene key='chatDetail' component={ChatDetail} title='Message List'/>
             <Scene key='deviceInfor' component={ImageUpload} title='Device Info'/>
+            <Scene key='walk' component={WalkThroughScreen} hideNavBar/>
 
           </Scene>
         </Scene>

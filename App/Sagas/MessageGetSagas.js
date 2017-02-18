@@ -17,13 +17,11 @@ export function * getMessageGet(api, action) {
   const {data} = action
   // make the call to the api
   const response = yield call(api.getMessage, data)
-  console.tron.log(response.data);
 
   // success?
   if (response.ok) {
     response.data._items.forEach((element) => {
       element.user = JSON.parse(element.user);
-      console.tron.log(element.createdAt);
       element.createdAt = new Date(element.createdAt);
     });
     // You might need to change the response here - do this with a 'transform',

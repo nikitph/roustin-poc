@@ -1,6 +1,7 @@
 import { put, call } from 'redux-saga/effects'
 import LoginActions from '../Redux/LoginRedux'
 import {path} from 'ramda'
+import {Actions as NavigationActions} from 'react-native-router-flux'
 
 // attempts to login
 export function * login (api, { username, password }) {
@@ -14,6 +15,7 @@ export function * login (api, { username, password }) {
     yield put(LoginActions.loginFailure('WRONG'))
   } else {
     // dispatch successful logins
-    yield put(LoginActions.loginSuccess(response.data.username))
+    yield put(LoginActions.loginSuccess(response.data.username));
+    yield call(NavigationActions.homeScreen, {message: 'Item Successfully Modified'});
   }
 }
