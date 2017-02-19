@@ -11,7 +11,7 @@ export default StyleSheet.create({
     flex: 0.3,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F2DFAE',
+    backgroundColor: '#F1E7D1',
   },
   text: {
     color: "black",

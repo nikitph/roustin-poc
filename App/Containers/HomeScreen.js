@@ -93,16 +93,16 @@ class HomeScreen extends React.Component {
           </View>
 
           <TouchableHighlight onPress={()=> NavigationActions.listviewExample()}
-                              style={{flex:0.45, backgroundColor:'#F2DFAE'}}>
+                              style={{flex:0.45, backgroundColor:'#F1E7D1'}}>
             <Animatable.Image animation='fadeInLeft' source={Images.buy}
                    style={{flex:0.45, alignSelf:'center', resizeMode:'cover'}}>
 
             </Animatable.Image>
           </TouchableHighlight>
-          <TouchableHighlight onPress={()=> NavigationActions.myItems()} style={{flex:0.45, backgroundColor:'#F2DFAE'}}>
+          <TouchableHighlight onPress={()=> NavigationActions.myItems()} style={{flex:0.45, backgroundColor:'#F1E7D1'}}>
 
             <Animatable.Image animation="fadeInRight" source={Images.sell}
-                              style={{flex:0.45, alignSelf:'center', resizeMode:'cover', backgroundColor:'#F2DFAE'}}>
+                              style={{flex:0.45, alignSelf:'center', resizeMode:'cover', backgroundColor:'#F1E7D1'}}>
 
 
             </Animatable.Image>

@@ -15,7 +15,7 @@ export default StyleSheet.create({
     height: Metrics.screenHeight,
     flexDirection: 'column',
     justifyContent: 'space-around',
-    backgroundColor: '#F2DFAE'
+    backgroundColor: '#F1E7D1'
   },
   slideContainer: {
     flex: 0.1,

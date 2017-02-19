@@ -23,13 +23,13 @@ class ConfirmationPage extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{flex:0.2, backgroundColor:'#F2DFAE',    justifyContent: 'center',alignItems: 'center'}}>
+        <View style={{flex:0.2, backgroundColor:'#F1E7D1',    justifyContent: 'center',alignItems: 'center'}}>
         </View>
         <View style={styles.modal}>
           <Image source={Images.check} style={styles.topLogo}>
           </Image>
         </View>
-        <View style={{flex:0.4, backgroundColor:'#F2DFAE', justifyContent: 'flex-start',alignItems: 'center'}}>
+        <View style={{flex:0.4, backgroundColor:'#F1E7D1', justifyContent: 'flex-start',alignItems: 'center'}}>
           <Text style={styles.text}>
             {this.props.message}
           </Text>
