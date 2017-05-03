@@ -19,7 +19,9 @@ export default StyleSheet.create({
     flex: 0.1,
     backgroundColor: '#F4B459',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    flexDirection: 'row',
+
   },
   slide: {
     flex: 1,

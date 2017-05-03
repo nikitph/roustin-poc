@@ -15,6 +15,8 @@ import {MessagePostTypes} from '../Redux/MessagePostRedux'
 import {ItemGetTypes} from '../Redux/ItemGetRedux'
 import {ItemPostTypes} from '../Redux/ItemPostRedux'
 import {ItemPatchTypes} from '../Redux/ItemPatchRedux'
+import { ItemDeleteTypes } from '../Redux/ItemDeleteRedux'
+
 
 /* ------------- Sagas ------------- */
 
@@ -27,6 +29,8 @@ import {getMessagePost} from './MessagePostSagas'
 import {getItemGet} from "./ItemGetSagas";
 import {getItemPost} from "./ItemPostSagas";
 import {getItemPatch} from "./ItemPatchSagas";
+import { getItemDelete } from "./ItemDeleteSagas";
+
 
 
 
@@ -52,7 +56,8 @@ export default function * root() {
     takeLatest(MessagePostTypes.MESSAGE_POST_REQUEST, getMessagePost, api),
     takeLatest(ItemGetTypes.ITEM_GET_REQUEST, getItemGet, api),
     takeLatest(ItemPostTypes.ITEM_POST_REQUEST, getItemPost, api),
-    takeLatest(ItemPatchTypes.ITEM_PATCH_REQUEST, getItemPatch, api)
+    takeLatest(ItemPatchTypes.ITEM_PATCH_REQUEST, getItemPatch, api),
+    takeEvery(ItemDeleteTypes.ITEM_DELETE_REQUEST, getItemDelete, api)
 
 
   ]

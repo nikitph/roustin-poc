@@ -75,6 +75,8 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
 
   const getItem = (params) => api.get('item?max_results=100');
 
+  const deleteItem = (params) => api.delete('item/' + params._id, {headers: {"If-Match": params._etag}});
+
   const postMessage = (params) => api.post('message', {
     building: params.building,
     sender: params.sender,
@@ -111,6 +113,7 @@ const create = (baseURL = 'http://127.0.0.1:8001/') => {
     getTownship,
     postItem,
     getItem,
+    deleteItem,
     postMessage,
     getMessage,
     patchItem

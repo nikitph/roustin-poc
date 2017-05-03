@@ -5,6 +5,7 @@ import {ScrollView, Text, KeyboardAvoidingView, View, Keyboard, TouchableOpacity
 import {connect} from 'react-redux'
 import ItemPostActions from '../Redux/ItemPostRedux'
 import ItemPatchActions from '../Redux/ItemPatchRedux'
+import ItemDeleteActions from '../Redux/ItemDeleteRedux'
 
 // Add Actions - replace 'Your' with whatever your reducer is called :)
 // import YourActions from '../Redux/YourRedux'
@@ -18,6 +19,8 @@ import Spinner from 'react-native-loading-spinner-overlay';
 // Styles
 import styles from './Styles/ItemInputStyle'
 import t from 'tcomb-form-native'
+
+import Former from '../Components/Former'
 
 // I18n
 import I18n from 'react-native-i18n'
@@ -160,46 +163,29 @@ class ItemInput extends React.Component {
 
   }
 
+  handlePressEdit = () => {
+    this.props.patchItem(this.state);
+  };
+
   handlePressSend = () => {
-    this.props.shouldEdit ? this.props.patchItem(this.state) :
     this.props.requestItem(this.state);
   };
 
+  handlePressDelete = () => {
+    this.props.deleteItem(this.state);
+  };
 
   onChange = (value, path) => {
     // validate a field on every change
-    console.tron.log(this.refs.form.getValue());
-    this.refs.form.getComponent(path).validate();
-    this.setState(this.refs.form.getValue());
+    console.log(path);
+    this.refs.fcon.refs.form.getComponent(path).validate();
+    this.setState(this.refs.fcon.refs.form.getValue());
   };
-
 
   render() {
     return (
-      <ScrollView style={styles.container}>
-        <KeyboardAvoidingView behavior='position'>
-          <View style={styles.containertwo}>
-            <View style={{flex:0.9, marginTop:64, marginLeft:20, marginRight:20}}>
-          <Form
-            ref="form"
-            type={Item}
-            options={options}
-            value={this.state}
-            onChange={this.onChange}
-          />
-            </View>
-              <TouchableOpacity onPress={() => this.handlePressSend(this.state)}
-                                style={styles.slideContainer}>
-                <Text
-                  style={{fontFamily:'AvenirNext-UltraLight', fontSize:20, fontWeight:'200',alignSelf:'center'}}>SAVE</Text>
-
-              </TouchableOpacity>
-
-          </View>
-          <Spinner visible={this.props.isfetching} textContent={"Loading..."} textStyle={{color: '#FFF'}}/>
-          {/*<Text>{this.props.isfetching ? 'true' : 'false'}</Text>*/}
-        </KeyboardAvoidingView>
-      </ScrollView>
+      <Former onChange={this.onChange} handlePressSend={this.handlePressSend} options={options} structure={Item}
+              ref="fcon" value={this.state}/>
     )
   }
 
@@ -231,7 +217,8 @@ const mapDispatchToProps = (dispatch) => {
   return {
 
     requestItem: (params) => dispatch(ItemPostActions.itemPostRequest(params)),
-    patchItem: (params) => dispatch(ItemPatchActions.itemPatchRequest(params))
+    patchItem: (params) => dispatch(ItemPatchActions.itemPatchRequest(params)),
+    deleteItem: (params) => dispatch(ItemDeleteActions.itemDeleteRequest(params)),
 
   }
 };

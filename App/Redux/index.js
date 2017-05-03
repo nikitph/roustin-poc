@@ -13,6 +13,8 @@ export default () => {
     itemget: require('./ItemGetRedux').reducer,
     itempost: require('./ItemPostRedux').reducer,
     itempatch: require('./ItemPatchRedux').reducer,
+    itemdelete: require('./ItemDeleteRedux').reducer,
+
     message: require('./MessageGetRedux').reducer
   })
 

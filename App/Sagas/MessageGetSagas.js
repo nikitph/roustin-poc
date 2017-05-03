@@ -10,13 +10,13 @@
  *    you'll need to define a constant in that file.
  *************************************************************/
 
-import {call, put} from 'redux-saga/effects'
+import { call, put, fork } from 'redux-saga/effects'
 import MessageGetActions from '../Redux/MessageGetRedux'
 
 export function * getMessageGet(api, action) {
   const {data} = action
   // make the call to the api
-  const response = yield call(api.getMessage, data)
+  const response = yield fork(api.getMessage, data)
 
   // success?
   if (response.ok) {
